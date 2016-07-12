@@ -1,4 +1,4 @@
-Router require('koa-router')
+Router = require('koa-router')
 adminRoute = require('./admin/index')
 
 router = Router()
