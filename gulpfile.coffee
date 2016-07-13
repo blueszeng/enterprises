@@ -34,6 +34,10 @@ gulp.task 'buildDocker', shell.task [
   'docker push registry.aliyuncs.com/tdtz/deerwar-op'
 ]
 
+gulp.task 'buildBowerlib', () ->
+    gulp.src('./components/bootstrap/')
+    .pipe gulp.dest ''
+
 gulp.task 'default', [ "converCoffee", "copyPublicSource","copyViewsSource", "copyPackageJSON"],
 () ->
     console.log 'cover...ok..'

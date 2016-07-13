@@ -1,4 +1,5 @@
 mysql = require('../../stores/mysql')
+
 module.exports.insertAdmin = (adminInfo, connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="

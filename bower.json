@@ -1,0 +1,20 @@
+{
+  "name": "enterprises",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "blues <blues.zeng@trantect.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/blueszeng/enterprises",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
