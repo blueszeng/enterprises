@@ -1,24 +1,28 @@
 Koa = require('koa')
 compress = require('koa-compress')
 bodyParser = require('koa-bodyparser')
-views = require('co-views')
-# co = require('co')
+render = require('koa-swig')
+path =require('path')
+co = require('co')
 http = require('http')
 PORT = require('./config').PORT
 _debug = require('debug')
 debug = _debug('backend:server')
 router = require('./routes/index')
-views = views __dirname + '/views',
-    map: html: 'swig'
+errorMiddleWare = require('./middlewares/error/index')
 
 debug('服务启动中')
 app = new Koa()
-# co.wrap(views)
-app.use views
+app.context.render = co.wrap(render
+    root: path.join(__dirname, 'views')
+    writeBody: true
+    ext: 'html')
+
 app.use compress(threshold: 1024)
 app.use bodyParser()
+app.use errorMiddleWare()
 app.use router.routes()
 
 server = http.createServer app.callback()
 server.listen PORT, () ->
-    debug("服务已成功在 http://localhost:#{PORT}/ 启动")
+    console.log("服务已成功在 http://localhost:#{PORT}/ 启动")

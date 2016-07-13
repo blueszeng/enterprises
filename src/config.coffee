@@ -1,8 +1,8 @@
-PORT = process.env.PORT || 3005
-DEVELOPMENT = process.env.NODE_ENV != 'production'
-TEST = process.env.NODE_ENV == 'testing'
+module.exports.PORT = PORT = process.env.PORT || 3005
+module.exports.DEVELOPMENT = DEVELOPMENT = process.env.NODE_ENV != 'production'
+module.exports.TEST = TEST = process.env.NODE_ENV == 'testing'
 
-MYSQLURL = do () ->
+module.exports.MYSQLURL = do () ->
     if TEST
         return "mysql://root:123456@192.168.1.238/deerwar_test?debug=false&charset=utf8mb4&
         timezone=+0800&connectionLimit＝8&waitForConnections=true&queueLimit=0&acquireTimeout=30000"
