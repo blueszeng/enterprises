@@ -10,4 +10,5 @@ router.get '/', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         resolve
             template: 'index'
+            data: {title: '主页'}
 module.exports = router

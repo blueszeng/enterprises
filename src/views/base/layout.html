@@ -1,14 +1,19 @@
-<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta content="中文">
+  {% block head %}{% endblock %}
   <link rel="stylesheet" type="text/css" href="/assets/global/css/bootstrap.css"/>
-  <title>123</title>
+  {% block importCss %}{% endblock %}
 </head>
 <script type="text/javascript" src="/assets/global/plugins/jquery.js"></script>
 <script type="text/javascript" src="/assets/global/plugins/bootstrap.js"></script>
+{% block importJs %}{% endblock %}
 <body>
-  index 主页web
+  <div class="header-container">
+  </div>
+  {% block content %}{% endblock %}
+  <div class="footer-container">
+  </div>
 </body>
 </html>

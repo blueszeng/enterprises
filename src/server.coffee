@@ -17,6 +17,7 @@ app.use serve(__dirname + '/public')
 app.context.render =
   views __dirname + '/views',
         map: html: 'swig'
+        default: 'swig'
 app.use compress(threshold: 1024)
 app.use bodyParser()
 app.use errorMiddleWare()
