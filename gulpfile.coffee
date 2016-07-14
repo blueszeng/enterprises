@@ -39,13 +39,21 @@ gulp.task 'buildBowerlib', () ->
     gulp.src [
         './components/bootstrap/dist/css/bootstrap.css'
         ]
-    .pipe gulp.dest './src/public/assert/global/css'
+    .pipe gulp.dest './src/public/assets/global/css'
+
+    # copy css.map file
+    gulp.src [
+        './components/bootstrap/dist/css/bootstrap.css.map'
+        ]
+    .pipe gulp.dest './src/public/assets/global/css'
+    
     # copy js file
     gulp.src [
         './components/bootstrap/dist/js/bootstrap.js'
         './components/jquery/dist/jquery.js'
+        './components/crypto-js/crypto-js.js'
         ]
-    .pipe gulp.dest './src/public/assert/global/plugins'
+    .pipe gulp.dest './src/public/assets/global/plugins'
 
 gulp.task 'default', [ "converCoffee", "copyPublicSource","copyViewsSource", "copyPackageJSON"],
 () ->

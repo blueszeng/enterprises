@@ -12,3 +12,5 @@ module.exports.MYSQLURL = do () ->
     else
         return "mysql://deerwar:tdtz0314Q@rm-wz969op83xr5hl885.mysql.rds.aliyuncs.com/deerwar?debug=false&
             charset=utf8mb4&timezone=+0800&connectionLimit＝8&waitForConnections=true&queueLimit=0&acquireTimeout=30000"
+ #加盐hash值
+module.exports.HASHKEY = 'knhu4%1O'
