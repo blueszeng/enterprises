@@ -35,8 +35,17 @@ gulp.task 'buildDocker', shell.task [
 ]
 
 gulp.task 'buildBowerlib', () ->
-    gulp.src('./components/bootstrap/')
-    .pipe gulp.dest ''
+    # copy css file
+    gulp.src [
+        './components/bootstrap/dist/css/bootstrap.css'
+        ]
+    .pipe gulp.dest './src/public/assert/global/css'
+    # copy js file
+    gulp.src [
+        './components/bootstrap/dist/js/bootstrap.js'
+        './components/jquery/dist/jquery.js'
+        ]
+    .pipe gulp.dest './src/public/assert/global/plugins'
 
 gulp.task 'default', [ "converCoffee", "copyPublicSource","copyViewsSource", "copyPackageJSON"],
 () ->
