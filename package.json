@@ -22,6 +22,7 @@
     "koa-bodyparser": "^3.0.0",
     "koa-compress": "^2.0.0",
     "koa-handlebars": "^0.5.7",
+    "koa-multer": "^1.0.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
     "koa-swig": "^2.2.0",
@@ -37,12 +38,13 @@
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0",
-    "gulp-less": "^3.0.5",
+    "gulp-less": "^3.1.0",
     "gulp-rev-append": "^0.1.6",
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
+    "less": "^2.7.1",
     "nodemon": "^1.9.2"
   }
 }

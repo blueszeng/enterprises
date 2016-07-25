@@ -9,7 +9,7 @@ module.exports = (fn, args) ->
             isAjax = ctx.headers['X-Requested-With'] == 'XMLHttpRequest'
             fn.apply ctx, [ctx, args]
             .then (data) ->
-                console.log data, ctx.method
+                # console.log data, ctx.method
                 ctx.status = if isPost then 201 else 200
                 if isAjax
                     ctx.body = status: true, data: data.data
@@ -54,21 +54,3 @@ module.exports = (fn, args) ->
                         ctx.status = 500
                         ctx.body = message: '服务处理异常'
                 resolve()
-
-                
-            
-
-
-
-
-
-
-
-                
-
-
-
-
-
-
-

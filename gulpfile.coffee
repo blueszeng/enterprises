@@ -7,6 +7,7 @@ concat = require 'gulp-concat'
 uglify = require 'gulp-uglify'
 rev = require 'gulp-rev-append'
 shell = require 'gulp-shell'
+less  = require 'gulp-less'
 
 gulp.task 'converCoffee', (cb) ->
     gulp.src ['./src/**/*.coffee', '!./src/node_modules/**/*',
@@ -38,6 +39,9 @@ gulp.task 'buildBowerlib', () ->
     # copy css file
     gulp.src [
         './components/bootstrap/dist/css/bootstrap.css'
+        './components/bootstrapvalidator/dist/css/bootstrapValidator.min.css'
+        './components/google-code-prettify/src/prettify.css'
+        './components/bootstrap-table/src/bootstrap-table.css'
         ]
     .pipe gulp.dest './src/public/assets/global/css'
 
@@ -46,15 +50,31 @@ gulp.task 'buildBowerlib', () ->
         './components/bootstrap/dist/css/bootstrap.css.map'
         ]
     .pipe gulp.dest './src/public/assets/global/css'
-    
+
     # copy js file
     gulp.src [
         './components/bootstrap/dist/js/bootstrap.js'
         './components/jquery/dist/jquery.js'
         './components/crypto-js/crypto-js.js'
+        './components/bootstrapvalidator/dist/js/bootstrapValidator.min.js'
+        './components/jquery.hotkeys/jquery.hotkeys.js'
+        './components/bootstrap-wysiwyg/bootstrap-wysiwyg.js'
+        './components/google-code-prettify/src/prettify.js'
+        './components/bootstrap-table/src/bootstrap-table.js'
         ]
     .pipe gulp.dest './src/public/assets/global/plugins'
 
-gulp.task 'default', [ "converCoffee", "copyPublicSource","copyViewsSource", "copyPackageJSON"],
+
+gulp.task 'buildBootstrapLess', () ->
+    gulp.src ['./components/bootstrap/less/bootstrap.less']
+        .pipe sourcemaps.init()
+        .pipe less()
+        .pipe sourcemaps.write '.'
+        .pipe gulp.dest './src/public/assets/global/css'
+
+gulp.task 'buildAll', [ "converCoffee", "copyPublicSource","copyViewsSource", "copyPackageJSON"],
 () ->
-    console.log 'cover...ok..'
+    console.log 'build success....'
+
+gulp.task 'watch', () ->
+    gulp.watch './components/bootstrap/less/**/*', ['buildBootstrapLess']

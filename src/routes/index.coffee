@@ -1,9 +1,18 @@
 Router = require('koa-router')
-apiRoute = require('./api/index')
 router = Router()
+adminRoute = require('./adminSys/index')
+articlesRoute = require('./articles/index')
+leaveMessageRoute = require('./leaveMessage/index')
+productsRoute = require('./products/index')
 wrapRoute = require('../utils/wrapRoute')
+imageRoute = require('./image/index')
+router.use '/image', imageRoute.routes()
+router.use '/adminSys', adminRoute.routes()
+router.use '/articles', articlesRoute.routes()
+router.use '/leaveMessage', leaveMessageRoute.routes()
+router.use '/products', productsRoute.routes()
 
-router.use '/api', apiRoute.routes()
+
 
 # home route api
 router.get '/', wrapRoute (ctx) ->

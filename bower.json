@@ -16,6 +16,16 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "crypto-js": "^3.1.6"
+    "crypto-js": "^3.1.6",
+    "bootstrap-daterangepicker": "^2.1.24",
+    "bootstrapvalidator": "^0.5.3",
+    "jquery.uniform": "uniform#^3.0.0",
+    "bootstrap-table": "^1.11.0",
+    "jquery-ui": "^1.12.0",
+    "font-awesome": "Font-Awesome#^4.6.3",
+    "bootstrap-wysiwyg": "*",
+    "jquery.hotkeys": "*",
+    "google-code-prettify": "^1.0.4",
+    "jquery.cookie": "^1.4.1"
   }
 }

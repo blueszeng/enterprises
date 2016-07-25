@@ -10,7 +10,11 @@ _debug = require('debug')
 debug = _debug('backend:server')
 router = require('./routes/index')
 errorMiddleWare = require('./middlewares/error/index')
+encode = require ('./utils/encode')
 
+# encode.encodePBKDF2('123','knhu4%1O')
+# .then (ret) ->
+#     console.log ret
 debug('服务启动中')
 app = new Koa()
 app.use serve(__dirname + '/public')

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="lang_cn" id="extr-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+	<title> SmartAdmin </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  {% block head %}{% endblock %}
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/smartadmin-production-plugins.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/smartadmin-production.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/smartadmin-skins.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/demo.min.css">
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+  {% block importCss %}{% endblock %}
+</head>
+<body class="animated fadeInDown">
+
+	<header id="header">
+
+		<div id="logo-group">
+			<span id="logo"> <img src="/img/logo.png" alt="SmartAdmin"> </span>
+		</div>
+	</header>
+
+  {% block contentList %}{% endblock %}
+  {% block content %}{% endblock %}
+
+
+  <script src="/js/libs/jquery-2.1.1.min.js"></script>
+
+  <!-- IMPORTANT: APP CONFIG -->
+  <script src="/js/app.config.js"></script>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+  <!-- CUSTOM NOTIFICATION -->
+  <script src="/js/notification/SmartNotification.min.js"></script>
+
+  <!-- Demo purpose only -->
+  <script src="/js/demo.min.js"></script>
+
+  <!-- MAIN APP JS FILE -->
+  <script src="/js/app.min.js"></script>
+
+  {% block importJs %}{% endblock %}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
