@@ -83,14 +83,23 @@ module.exports.searchAllArticles = (articleTypeId, title, start = 0, limit = 15,
             return resolve [] if ret.length <= 0
             return resolve ret
 
-module.exports.searchArticlesCount = (connection = mysql) ->
+module.exports.searchArticlesCount = (articleTypeId, title, connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
           SELECT
             count(1) as count
           FROM
-             t_articles"
-        connection.query sql, (err, ret) ->
+             t_articles
+          WHERE
+            1=1"
+       conditions = []
+       if articleTypeId
+           sql += " AND articleTypeId = ?"
+           conditions.push articleTypeId
+       if title
+           sql += " AND title = ?"
+           conditions.push title
+        connection.query sql, conditions, (err, ret) ->
             return reject　'检索所有文章类型数量异常' if err
             return resolve 0 if ret.length <= 0
             return resolve ret[0].count
