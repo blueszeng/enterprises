@@ -1,5 +1,5 @@
-productsDao = require('../../../daos/adminSys/products/products')
-productsTypeDao = require('../../../daos/adminSys/products/products-type')
+productsDao = require('../../daos/adminSys/products/products')
+productsTypeDao = require('../../daos/adminSys/products/products-type')
 
 
 # 后台管理界面 产品API
@@ -13,15 +13,16 @@ module.exports.addProducts = (productsInfo) ->
 
 module.exports.addProductsType = (productsTypeInfo) ->
     new Promise (resolve, reject) ->
-        productsDao.insertProductsType(productsTypeInfo)
+        productsTypeDao.insertProductsType(productsTypeInfo)
         .then (ret) ->
             resolve ret
         .catch (err) ->
             reject err
 
-module.exports.removeProducts = (productsId, name) ->
+module.exports.removeProducts = (productsId) ->
     new Promise (resolve, reject) ->
-        productsDao.delProductsById(productsId, name)
+        console.log 'gggggggggggg',productsDao.delProductsbyId
+        productsDao.delProductsbyId(productsId)
         .then (ret) ->
             resolve ret
         .catch (err) ->
@@ -47,13 +48,14 @@ module.exports.getAllProductsType = (page = 1) ->
     new Promise (resolve, reject) ->
         limit = 5
         start  = (page  - 1) * limit
-        console.log start
+        console.log start,'sbsbs'
         PromiseList = [
           productsTypeDao.searchAllProductsType(start, limit)
           productsTypeDao.searchProductsTypeCount()
         ]
         Promise.all PromiseList
         .then (ret) ->
+            console.log ret
             productsTypes = {}
             productsTypes.productsTypeList = ret[0]
             productsTypes.count = ret[1]
@@ -62,17 +64,18 @@ module.exports.getAllProductsType = (page = 1) ->
         .catch (err) ->
             reject err
 
-module.exports.getAllProducts = (articleTypeId, title, page = 1) ->
+module.exports.getAllProducts = (productsTypeId, name, page = 1) ->
     new Promise (resolve, reject) ->
         limit = 5
         start  = (page  - 1) * limit
-        console.log start
+        console.log productsTypeId, name
         PromiseList = [
-          productsTypeDao.searchAllProducts(articleTypeId, title, limit, start)
-          productsTypeDao.searchProductsCount(articleTypeId, title)
+          productsDao.searchAllProducts(productsTypeId, name, start, limit)
+          productsDao.searchProductsCount(productsTypeId, name)
         ]
         Promise.all PromiseList
         .then (ret) ->
+            # console.log ret
             products = {}
             products.productsList = ret[0]
             products.count = ret[1]
@@ -89,9 +92,19 @@ module.exports.getProductsType = (productsTypeId) ->
         .catch (err) ->
             reject err
 
+module.exports.getProductsTypeName = (productsTypeId) ->
+    new Promise (resolve, reject) ->
+        productsTypeDao.searchAllProductsTypeName()
+        .then (ret) ->
+            ret.splice(0, 0, {id: 0, name:'顶级'})
+            resolve ret
+        .catch (err) ->
+            reject err
+
+
 module.exports.getProducts = (productsId) ->
     new Promise (resolve, reject) ->
-        productsDao.searchAllProducts(productsId)
+        productsDao.searchProductsByProductId(productsId)
         .then (ret) ->
             resolve ret
         .catch (err) ->
@@ -105,9 +118,18 @@ module.exports.modifiedProducts = (productsInfo) ->
         .catch (err) ->
             reject err
 
+module.exports.getParentId = (parentName) ->
+    new Promise (resolve, reject) ->
+        productsTypeDao.searchParentIdByName(parentName)
+        .then (ret) ->
+            resolve ret
+        .catch (err) ->
+            reject err
+
 module.exports.modifiedProductsType = (productsTypeInfo) ->
     new Promise (resolve, reject) ->
-        productsDao.updateProductsType(productsTypeInfo)
+        console.log 'yy',productsTypeInfo
+        productsTypeDao.updateProductsType(productsTypeInfo)
         .then (ret) ->
             resolve ret
         .catch (err) ->

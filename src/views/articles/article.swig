@@ -85,19 +85,10 @@
                                     <fieldset class="scheduler-border">
                                         <legend class="scheduler-border">筛选条件</legend>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label text-right">文章类型ID</label>
+                                            <label class="col-sm-1 control-label text-right">文章类型</label>
 
                                             <div class="col-sm-2">
-                                                {# <input type="text" class="form-control" name="card_number" value=""> #}
-                                                <select class="form-control"  name="articlesTypeId">
-                                                {% for articlesTypeId in articlesTypeIds %}
-                                                  {% if articlesTypeId == articlesTypeId.id %}
-                                                    <option selected="selected">{{articlesTypeId.id}}</option>
-                                                  {% else %}
-                                                    <option>{{articlesTypeId.id}}</option>
-                                                  {% endif %}
-                                                {% endfor %}
-                                                </select>
+                                                <input type="hidden" id = "articlesTypeId" name="articlesTypeId" value="">
                                             </div>
 
                                             <label class="col-sm-1 control-label text-right">文章标题</label>
@@ -167,6 +158,7 @@
 
 {% block importJs %}
 <script src="/js/pages.js"></script>
+<script src="/js/plugin/select2/select2.min.js"></script>
 {% endblock %}
 
 {% block scripts %}
@@ -174,5 +166,33 @@
     var pageCount = Math.ceil("{{articles.count}}" / 5)
     var current = "{{articles.page}}";
     pages.showPage(pageCount, current);
+</script>
+<script>
+  function converTempObjToArray(templateObj) {
+    templateObj = templateObj.split(',')
+    templateObj.length = templateObj.length -1
+    return templateObj
+  }
+  function combTempObjToSelectArray(templateId, templateText) {
+    templateId = converTempObjToArray(templateId)
+    templateText = converTempObjToArray(templateText)
+    var selectArray = []
+    console.log(templateId)
+    for (var i in templateId) {
+      selectArray.push({id: templateId[i],text: templateText[i]})
+    }
+    return selectArray
+  }
+  var id = "{% for item in articlesTypeIds -%}{{ item.id}},{%- endfor %}"
+  var text = "{% for item in articlesTypeIds -%}{{ item.name}},{%- endfor %}"
+  var productType = combTempObjToSelectArray(id, text)
+  $("#articlesTypeId").select2({
+      placeholder: "请选择文章类型",
+      maximumSelectionSize: 1,
+      minimumResultsForSearch: Infinity,
+      allowClear: true,
+      data: function() { return {results: productType}; }
+  });
+  $("#articlesTypeId").val('{{articlesTypeId}}').trigger("change")
 </script>
 {% endblock %}

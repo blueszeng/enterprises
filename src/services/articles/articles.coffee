@@ -41,12 +41,14 @@ module.exports.getAllArticle = (articleTypeId, title, page = 1) ->
     new Promise (resolve, reject) ->
         limit = 5
         start  = (page  - 1) * limit
+        console.log 'start', start
         PromiseList = [
           articlesDao.searchAllArticles(articleTypeId, title, start, limit)
           articlesDao.searchArticlesCount(articleTypeId, title)
         ]
         Promise.all PromiseList
         .then (ret) ->
+            console.log ret
             articles = {}
             articles.articlesList = ret[0]
             articles.count = ret[1]

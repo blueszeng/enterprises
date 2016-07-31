@@ -6,50 +6,65 @@ router = Router()
 
 router.get '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
-        resolve
-            template: 'products/add-productstype'
+        console.log '123123'
+        productsService.getProductsTypeName()
+        .then (productsTypes) ->
+            console.log productsTypes
+            resolve
+                template: 'product/add-productstype'
+                data:
+                    productsTypes: productsTypes
+                    menu:
+                        productsType: "active"
 
 router.post '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsTypeInfo = ctx.request.body
+        console.log ctx.request.body,'bbbbbb'
         productsService.addProductsType(productsTypeInfo)
         .then (productsType) ->
             resolve
                 url: '/products/productstype'
                 redirect: true
+        .catch (err) ->
+            console.log 'err', err
 
 router.get '/', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         query = ctx.query
-        console.log query, query.page
         productsService.getAllProductsType(query.page)
         .then (productsTypes) ->
-            console.log productsTypes
+            console.log productsTypes,'ttttsss'
             resolve
-                template: 'products/productstype'
-                data: productsTypes: productsTypes
-                menu:
-                    products: true
+                template: 'product/productstype'
+                data:
+                    productsTypes: productsTypes
+                    menu:
+                        productsType: "active"
 
-router.get '/del/:articleTypeId', wrapRoute (ctx) ->
+router.get '/del/:productsTypeId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsTypeId = ctx.params.productsTypeId
-        productsService.removeProductsType(articleTypeId)
+        console.log productsTypeId, 'cccccccccc'
+        productsService.removeProductsType(productsTypeId)
         .then () ->
             resolve
                 url: '/products/productstype'
                 redirect: true
 
-router.get '/edit/:articleTypeId', wrapRoute (ctx) ->
+router.get '/edit/:productsTypeId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsTypeId = ctx.params.productsTypeId
         console.log productsTypeId
         productsService.getProductsType(productsTypeId)
         .then (productsType)->
-            console.log productsType
-            resolve
-                template: 'products/edit-productstype'
-                data:  productsType: productsType
+            productsService.getProductsTypeName()
+            .then (productsTypeNames) ->
+                resolve
+                    template: 'product/edit-productstype'
+                    data:
+                        productsType: productsType
+                        productsTypeNames: productsTypeNames
 
 router.post '/edit', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->

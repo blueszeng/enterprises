@@ -11,6 +11,12 @@ module.exports = (fn, args) ->
             .then (data) ->
                 # console.log data, ctx.method
                 ctx.status = if isPost then 201 else 200
+                if data and data.isEditJson
+                    ctx.body = data.data
+                    return resolve()
+                if data and data.isJson
+                    ctx.body = status: true, data: data.data
+                    return resolve()
                 if isAjax
                     ctx.body = status: true, data: data.data
                 else

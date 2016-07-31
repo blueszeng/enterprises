@@ -47,7 +47,7 @@
                 </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-                <a href="/articles/articletype/add" class="pull-right btn btn-primary">
+                <a href="/products/productstype/add" class="pull-right btn btn-primary">
                     添加产品类型
                 </a>
             </div>
@@ -85,18 +85,20 @@
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>类型id</th>
-                                            <th>类型名</th>
+                                            <th>产品类型id</th>
+                                            <th>产品类型名称</th>
+                                            <th>产品父类型ID</th>
                                             <th>管理</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for articleType in articlesTypes.articleTypeList %}
+                                        {% for productsType in productsTypes.productsTypeList %}
                                           <tr>
-                                            <td>{{articleType.id}}</td>
-                                            <td>{{articleType.name}}</td>
-                                            <td><a  href="/articles/articletype/edit/{{articleType.id}}"><button class="btn-xs btn btn-primary">编辑</button></a>
-                                                <a href="/articles/articletype/del/{{articleType.id}}"><button class="btn-xs btn btn-danger">删除</button></a>
+                                            <td>{{productsType.id}}</td>
+                                            <td>{{productsType.name}}</td>
+                                              <td>{{productsType.parent}}</td>
+                                            <td><a href="/products/productstype/edit/{{productsType.id}}"><button class="btn-xs btn btn-primary">编辑</button></a>
+                                                <a href="/products/productstype/del/{{productsType.id}}"><button class="btn-xs btn btn-danger">删除</button></a>
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -135,9 +137,9 @@
 
 {% block scripts %}
 <script>
-    console.log ("{{articlesTypes.count}}")
-    var pageCount = Math.ceil("{{articlesTypes.count}}" / 5)
-    var current = "{{articlesTypes.page}}";
+    console.log ("{{productsTypes.count}}")
+    var pageCount = Math.ceil("{{productsTypes.count}}" / 5)
+    var current = "{{productsTypes.page}}";
     pages.showPage(pageCount, current);
 
 

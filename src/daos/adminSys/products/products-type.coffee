@@ -18,27 +18,29 @@ module.exports.updateProductsType = (productsTypeInfo, connection = mysql) ->
         UPDATE
             t_products_type
         SET
-          name = ?, parent = ?
-        VALUES
-            (?, ?)
+            name = ?, parent = ?
         WHERE
             id = ?"
+        console.log 'zzz', productsTypeInfo, productsTypeInfo.name, productsTypeInfo.parent, productsTypeInfo.id
         connection.query sql, [productsTypeInfo.name, productsTypeInfo.parent, productsTypeInfo.id], (err, ret) ->
+            console.log err, ret
             reject　'更新产品分类异常' if err
             resolve true
 
-module.exports.searchAllProductsType = (start = 0, limit = 15, connection = mysql) ->
+module.exports.searchParentIdByName = (name, connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
         SELECT
-            *
+            id
         FROM
             t_products_type
-        LIMIT ?, ?"
-        connection.query sql, (err, ret) ->
-            return reject　'查询所有分类异常' if err
-            return resolve [] if ret.length <= 0
-            return resolve ret
+        WHERE
+            name = ?"
+        connection.query sql, [name], (err, ret) ->
+            console.log err, ret
+            reject　'更新产品分类异常' if err
+            resolve 0 if ret.length < 0
+            resolve ret[0].id
 
 module.exports.searchProductsType = (productsTypeId, connection = mysql) ->
     new Promise (resolve, reject) ->
@@ -63,8 +65,9 @@ module.exports.searchAllProductsType = (start = 0, limit = 15, connection = mysq
           FROM
              t_products_type
           LIMIT ?, ?"
+        console.log sql
         connection.query sql, [start, limit], (err, ret) ->
-            console.log err
+            console.log err, ret
             return reject　'检索所有产品类型异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret
@@ -75,10 +78,11 @@ module.exports.searchAllProductsTypeName = (connection = mysql) ->
           SELECT
             id, name
           FROM
-             t_products_types
+             t_products_type
         "
         console.log sql
         connection.query sql, (err, ret) ->
+            console.log err,ret
             return reject　'检索所有产品类型异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret

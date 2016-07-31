@@ -6,12 +6,19 @@ router = Router()
 
 router.get '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
-        resolve
-            template: 'products/add-products'
+        productsService.getProductsTypeName()
+        .then (productsTypeName) ->
+            resolve
+                template: 'product/add-product'
+                data:
+                    productsTypeName: productsTypeName
+                    menu:
+                        products: "active"
 
 router.post '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsInfo = ctx.request.body
+        console.log(productsInfo)
         productsService.addProducts(productsInfo)
         .then () ->
             resolve
@@ -21,19 +28,26 @@ router.post '/add', wrapRoute (ctx) ->
 router.get '/', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         query = ctx.query
-        console.log query, query.page
-        productsService.getAllProducts(query.page)
-        .then (products) ->
-            console.log products
-            resolve
-                template: 'products/products'
-                data: products: products
-                menu:
-                    products: true
+        productsService.getProductsTypeName()
+        .then (productsTypeName) ->
+            productsService.getAllProducts(query.productsTypeId, query.name, query.page)
+            .then (products) ->
+                console.log products
+                resolve
+                    template: 'product/product'
+                    data:
+                        products: products
+                        productsTypeName: productsTypeName
+                        productsTypeId: query.productsTypeId
+                        productsName: query.name
+                        menu:
+                            products: "active"
 
 router.get '/del/:productsId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
+
         productsId = ctx.params.productsId
+        console.log 'delllllllllll', productsId
         productsService.removeProducts(productsId)
         .then () ->
             resolve
@@ -43,13 +57,21 @@ router.get '/del/:productsId', wrapRoute (ctx) ->
 router.get '/edit/:productsId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsId = ctx.params.productsId
-        console.log productsId
         productsService.getProducts(productsId)
         .then (products)->
-            console.log products
-            resolve
-                template: 'products/edit-products'
-                data:  products: products
+            console.log 333, products
+            productsService.getProductsTypeName()
+            .then (productsTypeName) ->
+                console.log 44, productsTypeName
+                resolve
+                    template: 'product/edit-product'
+                    data:
+                        products: products
+                        productsTypeName: productsTypeName
+                        menu:
+                            products: "active"
+        .catch (err) ->
+            console.log err
 
 router.post '/edit', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->

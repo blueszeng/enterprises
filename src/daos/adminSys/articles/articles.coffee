@@ -76,9 +76,9 @@ module.exports.searchAllArticles = (articleTypeId, title, start = 0, limit = 15,
         sql += " LIMIT ?, ?"
         conditions.push start
         conditions.push limit
-        console.log sql
+        console.log sql, conditions
         connection.query sql, conditions, (err, ret) ->
-            console.log err
+            console.log err, ret
             return reject　'检索所有文章异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret
@@ -92,13 +92,13 @@ module.exports.searchArticlesCount = (articleTypeId, title, connection = mysql) 
              t_articles
           WHERE
             1=1"
-       conditions = []
-       if articleTypeId
-           sql += " AND articleTypeId = ?"
-           conditions.push articleTypeId
-       if title
-           sql += " AND title = ?"
-           conditions.push title
+        conditions = []
+        if articleTypeId
+            sql += " AND articleTypeId = ?"
+            conditions.push articleTypeId
+        if title
+            sql += " AND title = ?"
+            conditions.push title
         connection.query sql, conditions, (err, ret) ->
             return reject　'检索所有文章类型数量异常' if err
             return resolve 0 if ret.length <= 0

@@ -122,76 +122,34 @@
     <nav>
 
       <ul>
-
-        {% if menu.products %}
           <li>
             <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">产品管理</span></a>
             <ul>
-              <li class="active">
-                <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品类型</span></a>
+              <li class="{{menu.productsType}}" >
+                <a href="/products/productstype" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品类型</span></a>
               </li>
-              <li class="">
-                <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品列表</span></a>
-              </li>
-              <li class="">
-                <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">添加产品</span></a>
+              <li class="{{menu.products}}">
+                <a href="/products/products" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品列表</span></a>
               </li>
             </ul>
           </li>
-        {% else %}
-        <li class="active">
-          <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">产品管理</span></a>
-          <ul>
-            <li class="active">
-              <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品类型</span></a>
-            </li>
-            <li class="">
-              <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">产品列表</span></a>
-            </li>
-            <li class="">
-              <a href="product.html" title="Dashboard"><i class="fa fa-cube"></i> <span class="menu-item-parent">添加产品</span></a>
-            </li>
-          </ul>
-        </li>
-        {% endif %}
-        {% if menu.article %}
-        <li class="top-menu-invisible active">
+
+        <li class="">
           <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">文章管理</span></a>
           <ul>
-            <li class="">
+            <li class="{{menu.article}}">
               <a href="/articles/articletype" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">文章类别</span></a>
             </li>
-            <li class="">
+            <li class="{{menu.article}}">
               <a href="/articles/article" title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">文章列表</span></a>
             </li>
           </ul>
         </li>
-        {% else %}
-        <li class="top-menu-invisible">
-          <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">文章管理</span></a>
-          <ul>
-            <li class="">
-              <a href="/articles/articletype" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">文章类别</span></a>
-            </li>
-            <li class="">
-              <a href="/articles/article" title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">文章列表</span></a>
-            </li>
-          </ul>
-        </li>
-        {% endif %}
-        {% if menu.message %}
-        <li class="active">
-          <a href="../../leaveMessage"><i class="fa fa-lg fa-fw fa-inbox"></i>
+        <li class="{{menu.message}}">
+          <a href="/leaveMessage"><i class="fa fa-lg fa-fw fa-inbox"></i>
             <span class="menu-item-parent">留言管理</span>
             <span class="badge inbox-badge margin-right-13">14</span></a>
         </li>
-        {% else %}
-        <li>
-          <a href="../../leaveMessage"><i class="fa fa-lg fa-fw fa-inbox"></i>
-            <span class="menu-item-parent">留言管理</span>
-            <span class="badge inbox-badge margin-right-13">14</span></a>
-        </li>
-        {% endif %}
       </ul>
     </nav>
 

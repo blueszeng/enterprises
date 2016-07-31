@@ -69,7 +69,7 @@ module.exports.searchAllArticlesTypeIds = (connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
           SELECT
-            id
+            id, name
           FROM
              t_articles_type
         "

@@ -10,7 +10,10 @@ router.get '/add', wrapRoute (ctx) ->
         .then (articlesTypeIds) ->
             resolve
                 template: 'articles/add-article'
-                data: {articlesTypeIds: articlesTypeIds}
+                data:
+                    articlesTypeIds: articlesTypeIds
+                    menu:
+                        article: 'active'
 
 router.post '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
@@ -38,7 +41,7 @@ router.get '/', wrapRoute (ctx) ->
                         articlesTypeId: query.articlesTypeId
                         title: query.title
                         menu:
-                            article: true
+                            article: 'active'
 
 router.get '/del/:articleTypeId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->

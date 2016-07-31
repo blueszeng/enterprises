@@ -23,7 +23,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.removeDialogTabs = 'image:advanced;image:Link';
     config.image_previewText=' ';
-    config.filebrowserImageUploadUrl= "/";//图片上传处理路径 name upload
+    config.filebrowserImageUploadUrl= "/image/articleUpload";//图片上传处理路径 name upload
     //需返回 $callback是ck get过去的一个数值 dir是路径
     //<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(callback,dir);</script>
     //config.filebrowserUploadUrl = "/";

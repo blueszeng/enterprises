@@ -27,9 +27,11 @@ router.get '/', wrapRoute (ctx) ->
             console.log articlesTypes
             resolve
                 template: 'articles/articletype'
-                data: articlesTypes: articlesTypes
-                menu:
-                    article: true
+                data:
+                    articlesTypes: articlesTypes
+                    menu:
+                        article: 'active'
+
 
 router.get '/del/:articleTypeId', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->

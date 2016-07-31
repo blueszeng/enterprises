@@ -88,11 +88,14 @@
 
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label" for="select-1">文章类型Id</label>
+                                            <label class="col-md-2 control-label" for="select-1">文章类型</label>
                                             <div class="col-md-10">
+                                                <input  type="hidden" class="form-control"  name="id" value="{{article.id}}">
 
-                                                <input class="form-control"  name="id" value="{{article.id}}">
-                                                <select class="form-control" id="select-1" name="articlesTypeId">
+                                                <div class="col-sm-2">
+                                                    <input type="hidden" id = "articlesTypeId" name="articlesTypeId" value="">
+                                                </div>
+                                                {# <select class="form-control" id="select-1" name="articlesTypeId">
                                                 {% for articlesTypeId in articlesTypeIds %}
                                                   {% if articlesTypeId.id == article.id %}
                                                       <option  selected="selected">{{articlesTypeId.id}}</option>
@@ -100,7 +103,7 @@
                                                       <option>{{articlesTypeId.id}}</option>
                                                   {% endif %}
                                                 {% endfor %}
-                                                </select>
+                                                </select> #}
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -200,6 +203,7 @@
 
 {% block importJs %}
 <script src="/js/plugin/ckeditor/ckeditor.js"></script>
+<script src="/js/plugin/select2/select2.min.js"></script>
 {% endblock %}
 
 {% block scripts %}
@@ -207,5 +211,35 @@
     $(document).ready(function() {
         CKEDITOR.replace( 'article_content', { height: '200px', startupFocus : true} );
     })
+</script>
+
+<script>
+  function converTempObjToArray(templateObj) {
+    templateObj = templateObj.split(',')
+    templateObj.length = templateObj.length -1
+    return templateObj
+  }
+  function combTempObjToSelectArray(templateId, templateText) {
+    templateId = converTempObjToArray(templateId)
+    templateText = converTempObjToArray(templateText)
+    var selectArray = []
+    console.log(templateId)
+    for (var i in templateId) {
+      selectArray.push({id: templateId[i],text: templateText[i]})
+    }
+    return selectArray
+  }
+  var id = "{% for item in articlesTypeIds -%}{{ item.id}},{%- endfor %}"
+  var text = "{% for item in articlesTypeIds -%}{{ item.name}},{%- endfor %}"
+  var productType = combTempObjToSelectArray(id, text)
+  $("#articlesTypeId").select2({
+      placeholder: "请选择文章类型",
+      maximumSelectionSize: 1,
+      minimumResultsForSearch: Infinity,
+      allowClear: true,
+      data: function() { return {results: productType}; }
+  });
+  $("#articlesTypeId").val('{{article.id}}').trigger("change")
+
 </script>
 {% endblock %}

@@ -20,12 +20,11 @@ module.exports.updateProducts = (productsInfo, connection = mysql) ->
             t_products
         SET
           name = ?, linkImageUrl = ?, imageUrl = ?, productsTypeId = ?
-        VALUES
-            (?,?,?,?)
         WHERE
             id = ?"
         connection.query sql, [productsInfo.name, productsInfo.url,
          productsInfo.image, productsInfo.productsTypeId, productsInfo.id], (err, ret) ->
+             console.log err
              reject　'更新产品分类异常' if err
              resolve true
 
@@ -43,29 +42,33 @@ module.exports.searchProductsByProductId = (productsId, connection = mysql) ->
             return resolve {} if ret.length <= 0
             return resolve ret[0]
 
-module.exports.searchAllProducts = (productsId, title, start = 0, limit = 15, connection = mysql) ->
+module.exports.searchAllProducts = (productsTypeId, name, start = 0, limit = 15, connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
-        SELECT
+          SELECT
             *
-        FROM
-          t_products"
+          FROM
+             t_products
+          WHERE
+            1=1"
         conditions = []
-        if articleTypeId
-            sql += " AND productsId = ?"
-            conditions.push productsId
-        if title
-            sql += " AND title = ?"
-            conditions.push title
+        if productsTypeId
+            sql += " AND productsTypeId = ?"
+            conditions.push productsTypeId
+        if name
+            sql += " AND name = ?"
+            conditions.push name
         sql += " LIMIT ?, ?"
         conditions.push start
         conditions.push limit
-        connection.query sql, (err, ret) ->
+        console.log sql, conditions
+        connection.query sql, conditions, (err, ret) ->
+            console.log err, ret
             return reject　'查询所有产品异常' if err
-            return resolve {} if ret.length <= 0
-            return resolve ret[0]
+            return resolve [] if ret.length <= 0
+            return resolve ret
 
-module.exports.searchProductsCount = (productsId, title, connection = mysql) ->
+module.exports.searchProductsCount = (productsTypeId, name, connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
           SELECT
@@ -74,38 +77,27 @@ module.exports.searchProductsCount = (productsId, title, connection = mysql) ->
              t_products
           WHERE 1=1"
         conditions = []
-        if articleTypeId
-            sql += " AND productsId = ?"
-            conditions.push productsId
-        if title
-            sql += " AND title = ?"
-            conditions.push title
-        connection.query sql, (err, ret) ->
+        if productsTypeId
+            sql += " AND productsTypeId = ?"
+            conditions.push productsTypeId
+        if name
+            sql += " AND name = ?"
+            conditions.push name
+        connection.query sql, conditions, (err, ret) ->
+            console.log err, sql
             return reject　'检索所有产品数量异常' if err
             return resolve 0 if ret.length <= 0
             return resolve ret[0].count
 
-module.exports.searchAllProductsBySecondType = (productsTypeId, connection = mysql) ->
-    new Promise (resolve, reject) ->
-        sql ="
-        SELECT
-            *
-        FROM
-            t_products
-        WHERE
-            productsTypeId = ?"
-        connection.query sql, [productsTypeId], (err, ret) ->
-            return reject　'通过产品ID查询产品异常' if err
-            return resolve [] if ret.length <= 0
-            return resolve ret
-
 module.exports.delProductsbyId = (productsId, connection = mysql) ->
     new Promise (resolve, reject) ->
+        console.log "ddddddddddddddddddd"
         sql ="
         DELETE FROM
             t_products
         WHERE
           id = ?"
-        connection.query sql, [productsTypeId], (err, ret) ->
+        connection.query sql, [productsId], (err, ret) ->
+            console.log err
             reject　'删除产品异常' if err
             resolve true

@@ -140,10 +140,6 @@
     var pageCount = Math.ceil("{{articlesTypes.count}}" / 5)
     var current = "{{articlesTypes.page}}";
     pages.showPage(pageCount, current);
-
-    function test(data) {
-      console.log(data)
-    }
-
 </script>
+
 {% endblock %}

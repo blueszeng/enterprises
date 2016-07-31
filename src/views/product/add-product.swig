@@ -8,10 +8,10 @@
     <!-- RIBBON -->
     <div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
         <!-- breadcrumb -->
@@ -41,14 +41,14 @@
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
                 <h1 class="page-title txt-color-blueDark">
                     <i class="fa fa-pencil-square-o fa-fw "></i>
-                    文章管理
+                    产品类型
 							<span>>
-								添加文章
+								添加产品类型
 							</span>
                 </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-                <a href="/" class="pull-right btn btn-primary">
+                <a href="/products/products" class="pull-right btn btn-primary">
                     返回
                 </a>
             </div>
@@ -67,7 +67,7 @@
                     <div class="center-block jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false">
                         <header>
                             <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                            <h2>添加文章</h2>
+                            <h2>添加产品类型</h2>
 
                         </header>
 
@@ -84,77 +84,45 @@
                             <!-- widget content -->
                             <div class="widget-body">
 
-                                <form class="form-horizontal">
-
+                                <form class="form-horizontal" method='post' action='add'>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label" for="select-1">文章类别</label>
+                                            <label class="col-md-2 control-label" for="select-1">产品类型</label>
                                             <div class="col-md-10">
-
-                                                <select class="form-control" id="select-1">
-                                                    <option>Amsterdam</option>
-                                                    <option>Atlanta</option>
-                                                    <option>Baltimore</option>
-                                                    <option>Boston</option>
-                                                </select>
+                                                <input type="hidden" id ="productType"  name ="productsTypeId" >
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">文章标题</label>
-                                            <div class="col-md-10">
-                                                <input class="form-control" placeholder="Default Text Field" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-2 control-label">文章简述</label>
-
-                                            <div class="col-md-10">
-                                                <textarea class="form-control" placeholder="Textarea"
-                                                          rows="4"></textarea>
+                                            <label class="col-md-2 control-label">产品名称</label>
+                                            <div class="col-md-5">
+                                                <input class="form-control" placeholder="类型名称" name ="name" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <!-- NEW WIDGET START -->
-                                            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                                                <!-- Widget ID (each widget will need unique ID)-->
-                                                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
-                                                    <header>
-                                                        <span class="widget-icon"> <i class="fa fa-pencil"></i> </span>
-                                                        <h2>文章内容 </h2>
-
-                                                    </header>
-
-                                                    <!-- widget div-->
-                                                    <div>
-
-                                                        <!-- widget edit box -->
-                                                        <div class="jarviswidget-editbox">
-                                                            <!-- This area used as dropdown edit box -->
-
-                                                        </div>
-                                                        <!-- end widget edit box -->
-
-                                                        <!-- widget content -->
-                                                        <div class="widget-body no-padding">
-
-                                                        <textarea name="article_content">
-                                                        </textarea>
-
-                                                        </div>
-                                                        <!-- end widget content -->
-
-                                                    </div>
-                                                    <!-- end widget div -->
-
+                                            <label class="col-md-2 control-label" for="select-1">选择上传图片</label>
+                                            <input class="form-control" id ="imageUrl" name ="imageUrl" type="hidden">
+                                            <div class="col-md-5">
+                                                <input type="file" id='recfile' name ="recfile" class="form-control" placeholder="选择上传图片"/>
+                                                <div class="image-wrap">
+                                                    <img src="" class="product-image" />
                                                 </div>
-                                                <!-- end widget -->
-
-                                            </article>
-                                            <!-- WIDGET END -->
+                                            </div>
+                                            <div class="col-md-5">
+                                                <button type="button" id ="upload" class="btn btn-default">上传</button>
+                                            </div>
                                         </div>
-
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="select-1">图片点击链接</label>
+                                            <div class="col-md-5">
+                                                <input class="form-control" type="text" name ="linkImageUrl" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="select-1">是否推荐</label>
+                                            <div class="col-md-10">
+                                                <input type="hidden" id ="isRecommend"  name ="isRecommend" >
+                                            </div>
+                                        </div>
                                     </fieldset>
 
                                     <div class="form-actions">
@@ -192,18 +160,77 @@
     <!-- END MAIN CONTENT -->
 
 </div>
-
+{% endblock %}
 
 {% block importJs %}
-<script src="/js/plugin/ckeditor/ckeditor.js"></script>
+  <script src="/js/plugin/select2/select2.min.js"></script>
+  <script src="/js/ajaxfileupload.js"></script>
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
-    $(document).ready(function() {
+<script>
+  function converTempObjToArray(templateObj) {
+    templateObj = templateObj.split(',')
+    templateObj.length = templateObj.length -1
+    return templateObj
+  }
+  function combTempObjToSelectArray(templateId, templateText) {
+    templateId = converTempObjToArray(templateId)
+    templateText = converTempObjToArray(templateText)
+    var selectArray = []
+    console.log(templateId)
+    for (var i in templateId) {
+      selectArray.push({id: templateId[i],text: templateText[i]})
+    }
+    return selectArray
+  }
+  var id = "{% for item in productsTypeName -%}{{ item.id}},{%- endfor %}"
+  var text = "{% for item in productsTypeName -%}{{ item.name}},{%- endfor %}"
+  var productType = combTempObjToSelectArray(id, text)
+  $("#productType").select2({
+      placeholder: "  请选择产品类型",
+      maximumSelectionSize: 1,
+      minimumResultsForSearch: Infinity,
+      allowClear: true,
+      data: function() { return {results: productType}; }
+  });
+  $("#productType").val('{{productsTypeId}}').trigger("change")
 
-        CKEDITOR.replace( 'article_content', { height: '200px', startupFocus : true} );
+   isRecommend = [
+     {id: 0, text: '不推荐'},
+     {id: 1, text: '推荐'},
+   ]
+   $("#isRecommend").select2({
+       maximumSelectionSize: 1,
+       minimumResultsForSearch: Infinity,
+       allowClear: true,
+       data: function() { return {results: isRecommend}; }
+   });
+   $("#isRecommend").val(0).trigger("change")
 
+</script>
+<script>
+    $("#upload").click(function(){
+      $("#loading").ajaxStart(function () { $(this).show(); })
+      .ajaxComplete(function () { $(this).hide()});
+      $.ajaxFileUpload({
+        url: '/image/upload',
+        secureuri: false,
+        fileElementId: 'recfile',
+        dataType: 'json',
+        success: function (data, status)
+        {
+          $(".image-wrap").show()
+          if (data.status) {
+            $(".product-image").attr("src", data.data.path)
+            $("#imageUrl").val(data.data.path)
+          }
+        },
+        error: function (data, status, e)
+        {
+          console.log(data,status,e)
+        }
+      })
     })
 </script>
 {% endblock %}
