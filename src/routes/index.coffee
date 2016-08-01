@@ -12,12 +12,11 @@ router.use '/articles', articlesRoute.routes()
 router.use '/leaveMessage', leaveMessageRoute.routes()
 router.use '/products', productsRoute.routes()
 
-
-
 # home route api
 router.get '/', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         resolve
             template: 'index'
-            data: {title: '主页'}
+            data: title: '主页'
+
 module.exports = router
