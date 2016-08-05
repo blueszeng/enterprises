@@ -1,68 +1,221 @@
-{% extends "./base/layout.html" %}
-{% block head %}
-  <title>{{title}}</title>
-  <style type="text/css">
-  /*.breadcrumbs > li + li:before{
-      color: #CCCCCC;
-      content: '/';
-      padding: 0 5px ;
-  } */
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Page title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./tether/css/tether.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/js/hammer/hammer.min.js"></script>
+    <script src="/js/hammer/jquery.hammer.js"></script>
+    <style>
+      .container{
+        max-width: 860px;
+      }
+      .copy{
+        margin-top: 0px;
+      }
+      img {
+        margin:0px;
+        padding:0px;
+        width:100%;
+      }
+      .div_box {
+        margin-left:12px;
+      }
+      .row {
+        margin-bottom:8px;
+      }
+      .none{
+        padding: 0px;margin: 0px
+      }
+    </style>
 
-  .tt .breadcrumbs > li {
-      display: inline;
-  }
-
-  .tt  {
-      display: inline-block;
-  }
-
-
-</style>
-{% endblock %}
-{% block importCss %}
-<link href="/assets/global/src/prettify.css" rel="stylesheet" />
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="/assets/global/css/style.css"/>
-<link rel="stylesheet" type="text/css" src="/assets/global/plugins/bootstrap-table.css" />
-{% endblock %}
-{% block importJs %}
-  <script type="text/javascript" src="/assets/global/plugins/jquery.hotkeys.js"></script>
-  <script type="text/javascript" src="/assets/global/plugins/bootstrap-wysiwyg.js"></script>
-  <script type="text/javascript" src="/assets/global/plugins/prettify.js"></script>
-  <script type="text/javascript" src="/assets/global/plugins/bootstrap-table.js"></script>
-{% endblock %}
-{% block content %}
+  </head>
+  <body>
   <div class="container">
-         <table id="table" class ="table table-striped table-bordered table-hover"
-                data-toggle="table"
-                data-ajax="ajaxRequest"
-                data-search="false"
-                data-side-pagination="server"
-                data-pagination="true">
-             <thead>
-             <tr>
-                 <th data-field="id">ID</th>
-                 <th data-field="name">Item Name</th>
-                 <th data-field="price">Item Price</th>
-             </tr>
-             </thead>
-         </table>
+    <div class="row" >
+        <div class="col-md-4 hidden-xs hidden-sm">
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="div_box">
+            <img class="center-block" src="/images/index/logo.gif" />
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs hidden-sm">
+        </div>
+    </div>
+    <div class="row" >
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="row">
+          <div class="div_box">
+              <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="/images/index/index_01.png" alt="First slide">
+                    </div>
+                    <div class="item">
+                      <img src="/images/index/index_01.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                      <img src="/images/index/index_01.png" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航
+                <a class="carousel-control left" href="#myCarousel"
+                    data-slide="prev"></a>
+                <a class="carousel-control right" href="#myCarousel"
+                    data-slide="next"></a>-->
+              </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 none">
+            <div class="div_box">
+              <figure class="effect-bubba">
+                <a href="article.html">
+                  <img src="/images/index/index_10.png" />
+                  <figcaption>
+                    <h4>中医养生</h4>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 none">
+            <div class="div_box">
+              <figure class="effect-bubba">
+                <a href="article.html">
+                  <img src="/images/index/index_09.png" />
+                  <figcaption>
+                    <h4>中医养生</h4>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="row">
+          <div class="div_box">
+            <figure class="effect-bubba">
+              <a href="survey.html">
+                <img src="/images/index/index_02.png" />
+                <figcaption>
+                  <h4>体质测试</h4>
+                </figcaption>
+              </a>
+            </figure>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 none">
+            <div  class="div_box">
+              <figure class="effect-bubba">
+                <a href="/home/article">
+                  <img src="/images/index/index_07.png" />
+                  <figcaption>
+                    <h4>养生必读</h4>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 none">
+            <div  class="div_box">
+              <figure class="effect-bubba">
+                <a href="article.html">
+                  <img src="/images/index/index_08.png" />
+                  <figcaption>
+                    <h4>中医养生</h4>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="div_box">
+            <figure class="effect-bubba">
+              <a href="know.html">
+                <img src="/images/index/index_05.png" />
+                <figcaption>
+                  <h4>辨清体质</h4>
+                </figcaption>
+              </a>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="row">
+          <div  class="div_box">
+            <figure class="effect-bubba">
+              <a href="/home/product">
+                <img src="/images/index/index_03.png" />
+                <figcaption>
+                  <h4>养生调理产品</h4>
+                </figcaption>
+              </a>
+            </figure>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="div_box">
+            <figure class="effect-bubba">
+              <a href="soma.html">
+                <img src="/images/index/index_04.png" />
+                <figcaption>
+                  <h4>体质与健康</h4>
+                </figcaption>
+              </a>
+            </figure>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="div_box">
+            <figure class="effect-bubba">
+              <a href="about.html">
+                <img src="/images/index/index_06.png" />
+                <figcaption>
+                  <h4>关于我们</h4>
+                </figcaption>
+              </a>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-{% endblock %}
-{% block scripts %}
-<script type='text/javascript'>
-  var $table = $('#table');
-     function ajaxRequest(params) {
-         setTimeout(function () {
-             params.success({
-                 total: 100,
-                 rows: [{
-                     "id": 0,
-                     "name": "Item 0",
-                     "price": "$0"
-                 }]
-             });
-         }, 1000);
-     }
-</script>
-{% endblock %}
+  <div class="copy" style="border-top: none">
+    <p>Copyright©2011-2016 养生健康官网 咸阳玖和健康产品有限公司 版权所有
+    </p>
+    <p>网站备案/许可证号:陕ICP备88888888号-6 </p>
+  </div>
+  <script>
+    $('#myCarousel').hammer().on('swipeleft', function(){
+      $(this).carousel('next');
+    });
+    $('#myCarousel').hammer().on('swiperight', function(){
+      $(this).carousel('prev');
+    });
+  </script>
+  </body>
+</html>

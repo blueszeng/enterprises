@@ -1,0 +1,63 @@
+.container .top-div-img{
+    margin-top: -10px;
+}
+.top-div-img img{
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+i{
+    margin-right: 6px;
+    color: lightskyblue;
+    /*         -webkit-border-radius: 8px;
+             -moz-border-radius: 8px;
+             border-radius: 8px;
+             -webkit-box-shadow: #666 0px 0px 10px;
+             -moz-box-shadow: #666 0px 0px 10px;
+             box-shadow: #666 0px 0px 10px;  */
+}
+.row-panel{
+    background-color: white;
+}
+.row-panel .catalog{
+    margin: 12px 0px;
+    font-size: 12px;
+}
+.panel{
+    border:1px solid lightgrey;
+    margin-bottom: 5px;
+}
+.panel .panel-heading{
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    background-image: url("../images/tabRepeatInactive.png");
+    -webkit-box-shadow: grey 0px 0px 5px;
+    -moz-box-shadow: grey 0px 0px 5px;
+    box-shadow: grey 0px 0px 5px;
+}
+.panel .panel-heading i{
+    color: orange;
+}
+.panel .panel-body ul li{
+    line-height: 32px;
+    font-size: 12px;
+    border-bottom: 1px dashed gainsboro;
+}
+
+/*中间内容*/
+.inside-bg{
+    min-height:800px;
+}
+.new_content{margin:0px auto;text-align: left; padding-bottom:50px; padding-top:50px}
+.new_content{padding:40px 28px 40px 28px}
+
+/*新闻详细*/
+.new_article .new_article_t{ text-align:center; font-size:20px; color:#cc682a; padding-bottom:12px}
+.new_article .new_article_t .news_p{ font-size:12px; color:#666; padding-top:12px}
+
+.new_article_n{margin-top:20px;line-height:26px; min-height:630px; font-size:14px; color:#1f1f1f;}
+.new_article_n a{color:#1f1f1f;text-decoration: underline;}
+.new_article_n a:hover{color:#000000;text-decoration: underline;}
+.new_article_n img{max-width:700px}
+.news_title {font-size: 18px; line-height: 26px;color: #1e5fa3;}

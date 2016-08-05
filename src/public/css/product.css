@@ -1,0 +1,55 @@
+#mainBody {/* background: url(../images/seperator.png) repeat-x 0 0; */ padding-top: 18px;}
+.tag {background:url(../images/product/new.png) no-repeat 0 0; position: absolute; display:block; top: -4px;right: -18px; height:48px; width:48px;}
+#mainBody ul li{
+ margin-bottom: 0px;
+ margin-left: 0px;
+ padding-right: 0px;
+}
+/* Sidebar--------- */
+#sidebar ul ul li a{ font-size:12px;}
+#sidebar ul {list-style: none;padding: 0;margin: 0;width: 100%;}
+#sidebar  li  a{font-weight:bold; background:url(../images/product/tabRepeatInactive.png) repeat 0 0; color:#262626;}
+#sidebar ul li li a{background:#eee; padding-left:14px;font-weight:normal;display:block;   font-size:13px; line-height:26px;}
+#sidebar ul {background:#eee;}
+#sidebar #sideManu .subMenu{border: none}
+#sidebar #sideManu .subMenu ul{
+ margin-top: 0px;
+}
+#sidebar #sideManu .subMenu ul li{
+ margin: 0px;
+}
+#sidebar #sideManu .subMenu ul li a:hover{
+ color: #5BAAF8;
+ -webkit-transition: all .4s ease-in-out;
+ -moz-transition: all .4s ease-in-out;
+ -o-transition: all .4s ease-in-out;
+ -ms-transition: all .4s ease-in-out;
+ transition: all .4s ease-in-out;
+}
+/* body--- */
+.thumbnail>a{display:block; text-align:center}
+.thumbnail h5,.thumbnail p{text-align:center}
+
+
+/* ------------------------------- */
+[class^="icon-"], [class*=" icon-"] {background-image: none;}
+.pagination ul li .currency{
+  color: red;
+}
+/* Responsive--------------------- */
+/* Large desktop */
+@media (min-width: 1200px) {  }
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+ #sidebar ul{ font-size:8px;}
+ .thumbnail .caption h4 span{font-size:15px;}
+ .thumbnail .caption h4 .btn{padding:0px;}
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+ #sidebar ul{ font-size:6px;}
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+ #sidebar ul{ font-size:4px;}
+}

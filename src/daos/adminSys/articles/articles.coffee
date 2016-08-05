@@ -106,15 +106,14 @@ module.exports.searchArticlesCount = (articleTypeId, title, connection = mysql) 
 
 module.exports.searchArticlesByArticlesTypeId = (articlesTypeId, connection = mysql) ->
     new Promise (resolve, reject) ->
-    sql ="
-      SELECT
-        t_articles.title, t_articles.title
-      FROM
-         t_articles
-      WHERE
-       articlesType = ?"
-    connection.query sql, [articlesTypeId]
-    (err, ret) ->
-        return reject　'检索文章异常' if err
-        return resolve [] if ret.length <= 0
-        return resolve ret
+        sql ="
+          SELECT
+            t_articles.title, t_articles.id
+          FROM
+             t_articles
+          WHERE
+           articleTypeId = ?"
+        connection.query sql, [articlesTypeId], (err, ret) ->
+            return reject　'检索文章异常' if err
+            return resolve [] if ret.length <= 0
+            return resolve ret

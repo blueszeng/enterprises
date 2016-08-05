@@ -59,7 +59,7 @@ module.exports.searchAllArticlesType = (start = 0, limit = 15, connection = mysq
           FROM
              t_articles_type
           LIMIT ?, ?"
-        console.log sql
+        console.log sql,start, limit
         connection.query sql, [start, limit], (err, ret) ->
             return reject　'检索所有文章类型异常' if err
             return resolve [] if ret.length <= 0

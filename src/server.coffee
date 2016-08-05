@@ -7,16 +7,17 @@ http = require('http')
 serve = require('koa-static')
 PORT = require('./config').PORT
 _debug = require('debug')
+session = require('koa-generic-session')
+convert = require('koa-convert')
 debug = _debug('backend:server')
 router = require('./routes/index')
 errorMiddleWare = require('./middlewares/error/index')
 encode = require ('./utils/encode')
 
-# encode.encodePBKDF2('123','knhu4%1O')
-# .then (ret) ->
-#     console.log ret
 debug('服务启动中')
 app = new Koa()
+app.keys = ['some secret hurr']
+app.use convert(session(app))
 app.use serve(__dirname + '/public')
 app.context.render =
   views __dirname + '/views',

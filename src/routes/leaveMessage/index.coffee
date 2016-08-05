@@ -1,11 +1,13 @@
 Router = require('koa-router')
 wrapRoute = require('../../utils/wrapRoute')
 messageService = require('../../services/leaveMessage/leave-message')
+validate = require('../../middlewares/validate/index')
 Joi = require('joi')
 
 router = Router()
-
+router.use validate()
 # home route api
+
 router.get '/', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         query = ctx.query

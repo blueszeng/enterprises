@@ -91,7 +91,6 @@ module.exports.searchProductsCount = (productsTypeId, name, connection = mysql) 
 
 module.exports.delProductsbyId = (productsId, connection = mysql) ->
     new Promise (resolve, reject) ->
-        console.log "ddddddddddddddddddd"
         sql ="
         DELETE FROM
             t_products
@@ -101,3 +100,79 @@ module.exports.delProductsbyId = (productsId, connection = mysql) ->
             console.log err
             reject　'删除产品异常' if err
             resolve true
+
+module.exports.searchProductsNumberCount = (connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+          SELECT productsTypeId, count(productsTypeId) as count, parent
+          FROM t_products
+          JOIN t_products_type
+          ON t_products.productsTypeId = t_products_type.id
+          GROUP BY productsTypeId"
+        connection.query sql, (err, ret) ->
+            console.log err
+            reject　'查询产品数量异常' if err
+            resolve [] if ret.length < 0
+            resolve ret
+
+module.exports.searchRecommendProducts = (connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+          SELECT
+          	*
+          FROM
+          	t_products
+          ORDER BY
+          	isRecommend desc
+          LIMIT 8"
+        connection.query sql, (err, ret) ->
+            console.log err
+            reject　'查询推荐产品数量异常' if err
+            resolve [] if ret.length < 0
+            resolve ret
+
+module.exports.searchClickCountProducts = (connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+          SELECT
+          	*
+          FROM
+          	t_products
+          ORDER BY
+          	click desc
+          LIMIT 3"
+        connection.query sql, (err, ret) ->
+            console.log err
+            reject　'查询点击产品数量异常' if err
+            resolve [] if ret.length < 0
+            resolve ret
+
+module.exports.searchProductsByProductTypeId = (productsTypeId, connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+        SELECT
+            *
+        FROM
+            t_products
+        WHERE
+            productsTypeId = ?"
+        connection.query sql, [productsTypeId], (err, ret) ->
+            console.log err
+            return reject　'通过产品类型ID查询产品异常' if err
+            return resolve [] if ret.length <= 0
+            return resolve ret
+
+module.exports.searchProductsTitleByProductTypeId = (productsTypeId, connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+        SELECT
+            id, title
+        FROM
+            t_products
+        WHERE
+            productsTypeId = ?"
+        connection.query sql, [productsTypeId], (err, ret) ->
+            console.log err
+            return reject　'通过产品类型ID查询产品标题异常' if err
+            return resolve [] if ret.length <= 0
+            return resolve ret

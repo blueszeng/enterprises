@@ -12,6 +12,7 @@ module.exports =
                     .then (data) ->
                         ctx.body = data
                 if  ctx.status == 404
+                    console.log 12312, ctx.render
                     ctx.render 'error/404'
                     .then (data) ->
                         ctx.body = data

@@ -99,7 +99,7 @@ module.exports.searchProductsTypeCount = (connection = mysql) ->
             return resolve 0 if ret.length <= 0
             return resolve ret[0].count
 
-module.exports.searchFatherProductsType = (connection = mysql) ->
+module.exports.searchTopParentProductsType = (connection = mysql) ->
     new Promise (resolve, reject) ->
         sql ="
         SELECT
@@ -108,8 +108,22 @@ module.exports.searchFatherProductsType = (connection = mysql) ->
             t_products_type
         WHERE
             parent = 0"
-        connection.query sql, [productsTypeId], (err, ret) ->
+        connection.query sql, (err, ret) ->
             return reject　'通过查询所有父级分类异常' if err
+            return resolve [] if ret.length <= 0
+            return resolve ret
+
+module.exports.searchProductsTypeByParentId = (parentId, connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+        SELECT
+            *
+        FROM
+            t_products_type
+        WHERE
+            parent = ?"
+        connection.query sql, [parentId], (err, ret) ->
+            return reject　'通过父ID查询所有子分类信息异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret
 

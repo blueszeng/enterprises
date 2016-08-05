@@ -6,10 +6,11 @@ module.exports = (fn, args) ->
     (ctx) ->
         new Promise (resolve, reject) ->
             isPost = ctx.method == 'POST'
-            isAjax = ctx.headers['X-Requested-With'] == 'XMLHttpRequest'
+            isAjax = ctx.headers['x-requested-with'] == 'XMLHttpRequest'
             fn.apply ctx, [ctx, args]
             .then (data) ->
                 # console.log data, ctx.method
+                console.log 'zzzzzzzz'
                 ctx.status = if isPost then 201 else 200
                 if data and data.isEditJson
                     ctx.body = data.data
@@ -19,6 +20,7 @@ module.exports = (fn, args) ->
                     return resolve()
                 if isAjax
                     ctx.body = status: true, data: data.data
+                    return resolve()
                 else
                     if data.redirect
                         ctx.status = 301
@@ -38,25 +40,25 @@ module.exports = (fn, args) ->
                         debug '服务处理异常: %s', JSON.stringify(err)
                         debug err.stack
                         ctx.status = err.status || 510
-                        ctx.body = message: err.message || '服务处理异常'
+                        ctx.body = status: false, message: err.message || '服务处理异常'
                     else if _.isError err
                         if err
                             ctx.status = isPost ? 422 : 412
-                            ctx.body = message: err.message
+                            ctx.body = status: false, message: err.message
                         else
                             debug '其它错误: %s', JSON.stringify(err)
                             debug err.stack
                             ctx.status = 510
-                            ctx.body = message: '无法执行所需的请求'
+                            ctx.body = status: false, message: '无法执行所需的请求'
                     else if _.isString err
                         # 通过promise.reject返回的错误内容
                         debug '服务处理异常: %s', JSON.stringify(err)
                         debug err.stack
                         ctx.status = 510
-                        ctx.body = message: err
+                        ctx.body = status: false, message: err
                     else
                         debug '服务处理异常: %s', JSON.stringify(err)
                         debug err.stack
                         ctx.status = 500
-                        ctx.body = message: '服务处理异常'
+                        ctx.body = status: false, message: '服务处理异常'
                 resolve()

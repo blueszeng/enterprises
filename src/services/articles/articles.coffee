@@ -122,10 +122,30 @@ module.exports.getArticleType = (articlesTypeId) ->
             reject err
 
 #  前端调用 api
-module.exports.getArticleTitleOnArticlesType = (articlesTypeId) ->
+module.exports.getArticleTitleOnArticlesType = (articlesId) ->
     new Promise (resolve, reject) ->
-        articlesDao.searchArticlesByArticlesId(articlesTypeId)
-        .then (ret) ->
-            resolve ret
+        articlesDao.searchArticlesByArticlesId(articlesId)
+        .then (article) ->
+            resolve article
         .catch (err) ->
             reject err
+
+module.exports.getAllArticleTypeListandArticleTitle = () ->
+    new Promise (resolve, reject) ->
+        articlesTypeDao.searchAllArticlesType()
+        .then (articlesTypes) ->
+            artictlesType [] if articlesTypes.length < 0
+            PromiseList = []
+            artictlesTypeList = [[],[]]
+            articlesTypes.forEach (articlesType) ->
+                PromiseList.push articlesDao.searchArticlesByArticlesTypeId(articlesType.id)
+            Promise.all PromiseList
+            .then (articles) ->
+                articles.forEach (article, index) ->
+                    articlesTypes[index].article = article
+                    if index % 2 == 0
+                        artictlesTypeList[0].push articlesTypes[index]
+                    else
+                        artictlesTypeList[1].push articlesTypes[index]
+                console.log artictlesTypeList
+                resolve artictlesTypeList

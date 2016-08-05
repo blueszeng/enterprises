@@ -1,0 +1,105 @@
+/* 大屏幕 */
+@media (min-width: 1200px) {  }
+ 
+/* 平板电脑和小屏电脑之间的分辨率 */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+ 
+/* 横向放置的手机和竖向放置的平板之间的分辨率 */
+@media (max-width: 767px) {  }
+ 
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) {  }
+
+/* 通用 */
+a{color: black}
+*:hover,a:hover{ text-decoration:none}
+a.fontnav {text-decoration:none; outline:none;}
+body{color:black;background-image: url("../images/bg.jpg");
+    font-family:  "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+i{font-style:normal}
+p{padding:0px;margin:0px}
+em{font-style:normal}
+ul li {list-style-type: none;margin:0px;padding:0px}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;
+font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+ul,ol{list-style:none;margin:0px;padding:0px}
+img{ border:none; border:0;width: 100%}
+
+header{
+    height: 150px;
+    overflow: hidden;
+}
+header > img {
+    position: absolute;
+    top:0px;
+    left: 0px;
+    margin-right: 50px;
+    z-index: -1;
+    max-height: 150px;
+}
+header img{
+    width: 100%;
+}
+
+nav {
+    font-size: 22px;
+    font-weight: bold;
+    color: beige;
+}
+nav ul li .active{
+
+}
+.container {
+    max-width: 1000px;
+}
+
+
+/*底部 */
+.copy {
+    text-align:center;
+    margin-top: 50px;
+    border-top:6px solid #000;
+    padding-top: 12px;
+    font-size: 12px;
+    color: darkgray;
+}
+.copy p{
+    margin-top: 6px;
+}
+#main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/*通用侧边栏*/
+#sidebar #sideManu .subMenu{
+    border: 1px solid lightgrey;
+}
+#sidebar #sideManu .subMenu .sidebar-left-title{
+    background-image: url('../images/tabRepeatInactive.png');
+    box-shadow:  grey 0 0 2px;
+    -moz-box-shadow:  grey 0 0 2px;
+    -webkit-box-shadow: grey 0 0 2px;
+    border: none;
+    margin-right: 0px;
+    border-radius: 0px 0px 0px 0px;
+    line-height: 8px;
+    font-weight: bold;
+}
+#sidebar #sideManu .subMenu ul{
+    margin-top: 12px;
+}
+#sidebar #sideManu .subMenu ul li{
+    margin: 6px;
+    margin-left: 16px;
+}
+#main .container{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}

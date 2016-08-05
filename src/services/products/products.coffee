@@ -146,37 +146,98 @@ module.exports.modifiedProductsSecondTypeName = (name, productsInfo, productsSec
 
 # 前端显示页API 产品接口
 
-getleafTypesByProductsType = (productsTypeId) ->
-    new Promise (resolve, reject) ->
-        leafTypesId = []
-        productsTypeDao.searchProductsTypeById(productsTypeId)
-        .then (productsTypes) ->
-            resolve productsTypes
-        .catch (err) ->
-            reject err
 
-module.exports.getProductsByProductsType = (productsTypeId) ->
+module.exports.getProductsByProductsType = (productsTypeId, page = 1) ->
     new Promise (resolve, reject) ->
-        getleafTypesByProductsType(productsTypeId)
+        limit = 6
+        start  = (page  - 1) * limit
+        productsTypeDao.searchProductsTypeByParentId(productsTypeId)
         .then (productsTypes) ->
             if productsTypes.length <= 0
                 productsTypes.push id: productsTypeId
+            productsTypePromises = []
             productsTypes.forEach (productsType) ->
-                productsTypePromises.push productsTypeDao.searchProductsByProductId(productsType.id)
+                productsTypePromises.push productsDao.searchProductsByProductTypeId(productsType.id)
             Promise.all productsTypePromises
             .then (ret) ->
                 productsList = []
                 ret.forEach (products) ->
-                    productsList.concat products
-                resolve productsList
+                    productsList =  productsList.concat products
+                count = productsList.length
+                resolve
+                    productsList: productsList.splice(start, limit)
+                    productsCount: count
         .catch (err) ->
             reject err
 
-module.exports.getProductsFatherType = () ->
+getProductsTypeByTopParentId = (parentId) ->
     new Promise (resolve, reject) ->
-        productsTypeDao.searchFatherProductsType()
+        productsTypeDao.searchProductsTypeByParentId(parentId)
         .then (productsTypes) ->
-            resolve [] if productsTypes.length <= 0
-            resolve ret
+            resolve productsTypes
+        .catch (err) ->
+            console.log err
+            reject err
+
+getProductsGroupByIdCount = () ->
+    new Promise (resolve, reject) ->
+        productsDao.searchProductsNumberCount()
+        .then (productCountList) ->
+            productCountMap = {}
+            productCountList.forEach (product) ->
+                productCountValue = productCountMap[product.parent]
+                productCountMap[product.parent] = if productCountValue then productCountValue else 0
+                productCountMap[product.parent] += product.count
+            productCountList.forEach (product) ->
+                productCountMap[product.productsTypeId] = product.count
+            resolve productCountMap
+        .catch (err) ->
+            reject err
+
+module.exports.getProductsTypeMenuInfo = () ->
+    new Promise (resolve, reject) ->
+        getProductsGroupByIdCount()
+        .then (groupTypeCounts) ->
+            productsTypeDao.searchTopParentProductsType()
+            .then (parentTypes) ->
+                promiseList = []
+                productsTypeInfo = []
+                parentTypes.forEach (parentType) ->
+                    parentType.count = groupTypeCounts[parentType.id]
+                    promiseList.push getProductsTypeByTopParentId(parentType.id)
+                Promise.all(promiseList).then (productsTypeRet) ->
+                    productsTypeRet.forEach (productsType, index) ->
+                        productsType.forEach (productType) ->
+                            productType.count = groupTypeCounts[productType.id]
+                        productsTypeInfo[index] = {}
+                        productsTypeInfo[index].parentProductType = parentTypes[index]
+                        productsTypeInfo[index].childProductType = productsType
+                        console.log productsType
+                    resolve productsTypeInfo
+        .catch (err) ->
+            console.log err
+            reject err
+
+module.exports.getRecommendProducts = (page = 2) ->
+    new Promise (resolve, reject) ->
+        productsDao.searchRecommendProducts()
+        .then (products) ->
+            productsList = []
+            for index in [0...page]
+                productsl = {}
+                productsl.product = []
+                lengthList = [0...4]
+                for _, indexj in lengthList
+                    productsl.product.push products[index * 4 + indexj]
+                productsList.push productsl
+            resolve productsList
+        .catch (err) ->
+            reject err
+
+module.exports.getClickCountProducts = () ->
+    new Promise (resolve, reject) ->
+        productsDao.searchClickCountProducts()
+        .then (products) ->
+            resolve products
         .catch (err) ->
             reject err

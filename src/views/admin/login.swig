@@ -41,7 +41,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
-							<form method='post' action='login' id="login-form" class="smart-form client-form">
+							<form method='post' action='/adminSys/admin/login' id="login-form" class="smart-form client-form">
 								<header>
 									后台登陆
 								</header>

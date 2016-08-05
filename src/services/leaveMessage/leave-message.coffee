@@ -2,7 +2,6 @@ leaveMessageDao = require('../../daos/adminSys/leaveMessage/leave-message')
 
 # 后台管理界面  留言API
 module.exports.getAllLeaveMessage = (page = 1) ->
-    console.log 'test'
     new Promise (resolve, reject) ->
         limit = 5
         start  = (page  - 1) * limit
