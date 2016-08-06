@@ -18,6 +18,8 @@ router.get '/product', wrapRoute (ctx) ->
                             productsTypesList: productsTypeInfo
                             recommendProductsList: recommendProducts
                             clickProducts: clickProducts
+                            menu:
+                                product: 'active'
 
 router.get '/getProducts', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
@@ -33,6 +35,7 @@ router.get '/getProducts', wrapRoute (ctx) ->
 
 router.get '/clickProducts', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
+        console.log 'zzzzzzzzzz', ctx.query.productsId
         productsId = ctx.query.productsId
         productsService.updateProductsClickCount(productsId)
         .then () ->
@@ -49,6 +52,8 @@ router.get '/article', wrapRoute (ctx) ->
                 data:
                     articleTypesListOne: articleTypes[0]
                     articleTypesListTwo: articleTypes[1]
+                    menu:
+                        article: 'active'
 
 
 router.get '/articleDetail', wrapRoute (ctx) ->
@@ -67,6 +72,8 @@ router.get '/articleDetail', wrapRoute (ctx) ->
                                 article: article
                                 clickProducts: clickProducts
                                 clickArticles: clickArticles
+                                menu:
+                                    article: 'active'
 
 router.get '/clickArticles', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
@@ -75,5 +82,31 @@ router.get '/clickArticles', wrapRoute (ctx) ->
         .then () ->
             resolve
                 data: true
+
+router.get '/soma', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        resolve
+            template: 'home/soma'
+            data:
+                menu:
+                    soma: 'active'
+
+router.get '/soma_detail', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        console.log ctx.query
+        somaTypeId = ctx.query.somaTypeId
+        console.log somaTypeId
+        console.log "home/soma_detail_#{somaTypeId}"
+        resolve
+            template: "home/soma_detail_#{somaTypeId}"
+            data:
+                menu:
+                    soma: 'active'
+
+
+router.get '/about', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        resolve
+            template: 'home/about'
 
 module.exports = router

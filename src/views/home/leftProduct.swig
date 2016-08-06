@@ -2,7 +2,7 @@
 {% block contentLeft %}
   {% for product in clickProducts %}
     <div class="thumbnail">
-        <img  onclick = "clickProductsAddCount(this)" data-id ="{{product.id}}" src="{{product.imageUrl}}" title="Bootshop New Kindel" alt="Bootshop Kindel">
+        <a onclick = "clickProductsAddCount(this)" data-id ="{{product.id}}" href="{{product.linkImageUrl}}"><img  onclick = "clickProductsAddCount(this)" data-id ="{{product.id}}" src="{{product.imageUrl}}" title="Bootshop New Kindel" alt="Bootshop Kindel"></a>
         <div class="caption">
             <h5>{{product.name}} ￥{{product.price}}</h5>
         </div>

@@ -244,8 +244,10 @@ module.exports.getClickCountProducts = () ->
 
 module.exports.updateProductsClickCount = (productsId) ->
     new Promise (resolve, reject) ->
-        productsDao.searchProductsByProductTypeId(productsId)
+        console.log 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', productsId
+        productsDao.searchProductsByProductId(productsId)
         .then (products) ->
+            console.log products
             productsDao.updateProductsClickCount(productsId, products.click)
             .then () ->
                 resolve true

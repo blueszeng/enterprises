@@ -186,7 +186,8 @@ module.exports.updateProductsClickCount = (productsId, count, connection = mysql
           click = ?
         WHERE
             id = ?"
-        connection.query sql, [count, productsId], (err, ret) ->
+        connection.query sql, [count + 1, productsId], (err, ret) ->
+            console.log err
             console.log err
             return reject　'更新的产品点击数量异常' if err
             return resolve true

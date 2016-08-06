@@ -14,3 +14,5 @@ module.exports.MYSQLURL = do () ->
           timezone=+0800&connectionLimit＝8&waitForConnections=true&queueLimit=0&acquireTimeout=30000"
  #加盐hash值
 module.exports.HASHKEY = 'knhu4%1O'
+
+#  xuyq1992   xyq1021siss@

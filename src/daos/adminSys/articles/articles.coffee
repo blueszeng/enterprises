@@ -143,7 +143,7 @@ module.exports.updateArticlesClickCount = (articlesId, count, connection = mysql
           click = ?
         WHERE
             id = ?"
-        connection.query sql, [count, articlesId], (err, ret) ->
+        connection.query sql, [count + 1, articlesId], (err, ret) ->
             console.log err
             return reject　'更新文章点击数量异常' if err
             return resolve true
