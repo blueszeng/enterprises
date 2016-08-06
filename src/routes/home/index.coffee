@@ -31,6 +31,13 @@ router.get '/getProducts', wrapRoute (ctx) ->
                     products: products.productsList
                     count: products.productsCount
 
+router.get '/clickProducts', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        productsId = ctx.query.productsId
+        productsService.updateProductsClickCount(productsId)
+        .then () ->
+            resolve
+                data: true
 
 router.get '/article', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
@@ -43,15 +50,30 @@ router.get '/article', wrapRoute (ctx) ->
                     articleTypesListOne: articleTypes[0]
                     articleTypesListTwo: articleTypes[1]
 
+
 router.get '/articleDetail', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         articlesId = ctx.query.articlesId
         articlesService.getArticleTitleOnArticlesType(articlesId)
         .then (article) ->
-            console.log article, articlesId
+            productsService.getClickCountProducts()
+            .then (clickProducts) ->
+                articlesService.getClickCountArticles()
+                    .then (clickArticles) ->
+                        console.log article, articlesId
+                        resolve
+                            template: 'home/article_detail'
+                            data:
+                                article: article
+                                clickProducts: clickProducts
+                                clickArticles: clickArticles
+
+router.get '/clickArticles', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        articlesId = ctx.query.articlesId
+        articlesService.updateArticlesClickCount(articlesId)
+        .then () ->
             resolve
-                template: 'home/article_detail'
-                data:
-                    article: article
+                data: true
 
 module.exports = router

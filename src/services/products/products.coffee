@@ -241,3 +241,13 @@ module.exports.getClickCountProducts = () ->
             resolve products
         .catch (err) ->
             reject err
+
+module.exports.updateProductsClickCount = (productsId) ->
+    new Promise (resolve, reject) ->
+        productsDao.searchProductsByProductTypeId(productsId)
+        .then (products) ->
+            productsDao.updateProductsClickCount(productsId, products.click)
+            .then () ->
+                resolve true
+        .catch (err) ->
+            reject err

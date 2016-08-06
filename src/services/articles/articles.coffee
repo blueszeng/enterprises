@@ -149,3 +149,21 @@ module.exports.getAllArticleTypeListandArticleTitle = () ->
                         artictlesTypeList[1].push articlesTypes[index]
                 console.log artictlesTypeList
                 resolve artictlesTypeList
+
+module.exports.getClickCountArticles = () ->
+    new Promise (resolve, reject) ->
+        articlesDao.searchClickCountArticles()
+        .then (products) ->
+            resolve products
+        .catch (err) ->
+            reject err
+
+module.exports.updateArticlesClickCount = (articlesId) ->
+    new Promise (resolve, reject) ->
+        articlesDao.searchArticlesByArticlesId(articlesId)
+        .then (articles) ->
+            articlesDao.updateArticlesClickCount(articlesId, articles.click)
+            .then () ->
+                resolve true
+        .catch (err) ->
+            reject err

@@ -117,3 +117,33 @@ module.exports.searchArticlesByArticlesTypeId = (articlesTypeId, connection = my
             return reject　'检索文章异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret
+
+module.exports.searchClickCountArticles = (connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+          SELECT
+          	*
+          FROM
+          	t_articles
+          ORDER BY
+          	click desc
+          LIMIT 6"
+        connection.query sql, (err, ret) ->
+            console.log err
+            reject　'查询点击产品数量异常' if err
+            resolve [] if ret.length < 0
+            resolve ret
+
+module.exports.updateArticlesClickCount = (articlesId, count, connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+        UPDATE
+            t_articles
+        SET
+          click = ?
+        WHERE
+            id = ?"
+        connection.query sql, [count, articlesId], (err, ret) ->
+            console.log err
+            return reject　'更新文章点击数量异常' if err
+            return resolve true

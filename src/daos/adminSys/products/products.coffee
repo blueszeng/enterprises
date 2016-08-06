@@ -176,3 +176,17 @@ module.exports.searchProductsTitleByProductTypeId = (productsTypeId, connection 
             return reject　'通过产品类型ID查询产品标题异常' if err
             return resolve [] if ret.length <= 0
             return resolve ret
+
+module.exports.updateProductsClickCount = (productsId, count, connection = mysql) ->
+    new Promise (resolve, reject) ->
+        sql ="
+        UPDATE
+            t_products
+        SET
+          click = ?
+        WHERE
+            id = ?"
+        connection.query sql, [count, productsId], (err, ret) ->
+            console.log err
+            return reject　'更新的产品点击数量异常' if err
+            return resolve true
