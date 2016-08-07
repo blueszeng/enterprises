@@ -21,17 +21,17 @@
                   <div class="col-md-6 contact-grid">
                       <form>
                           <p class="your-para">姓 名:</p>
-                          <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                          <input type="text" id="name" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                           <p class="your-para">手 机:</p>
-                          <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                          <input type="text"  id="phone" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                           <p class="your-para">邮 箱:</p>
-                          <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                          <input type="text"  id="emal" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                           <p class="your-para">地 址:</p>
-                          <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                          <input type="text" id="address" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                           <p class="your-para">留 言:</p>
-                          <textarea cols="77" rows="3"  onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+                          <textarea cols="77" id="message" rows="3"  onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
                           <div class="send">
-                              <input type="submit" value="确定" >
+                              <input id="submit" type="button" value="确定" >
                           </div>
                       </form>
                   </div>
@@ -79,5 +79,33 @@
       map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
       map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
       map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+  </script>
+
+  <script>
+    $(document).ready(function (){
+      $('#submit').click(function(){
+          $.ajax({
+            url: '/home/message',
+            type: 'post',
+            data: {
+              name: $('#name').val(),
+              phone: $('#phone').val(),
+              emal: $('#emal').val(),
+              address: $('#address').val(),
+              message: $('#message').val()
+            },
+            dataType: 'json'
+          }).done(function(json) {
+            console.log(json.status)
+            if (json.status == true) {
+              $('#name').val('');
+              $('#phone').val('');
+              $('#emal').val('');
+              $('#address').val('');
+              $('#message').val('');
+            }
+          });
+      });
+    });
   </script>
 {% endblock %}

@@ -45,10 +45,8 @@
     padding: 0px;
 }
 .panel .panel-body{
-    padding-left: 32px;
-    line-height: 30px;
-    font-size: 16px;
     color: darkolivegreen;
+    padding:6px 0 0 6px;
 }
 .i-title{
     width:86px;
@@ -63,7 +61,15 @@
 }
 
 /* 大屏幕 */
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+    .panel .panel-body{
+        margin-top: 12px;
+        padding-left: 32px;
+        line-height: 30px;
+        font-size: 16px;
+        color: darkolivegreen;
+    }
+}
 
 /* 平板电脑和小屏电脑之间的分辨率 */
 @media (min-width: 768px) and (max-width: 979px) {
@@ -71,8 +77,8 @@
         font-size: 18px;
     }
     .panel .panel-body{
-        padding-left: 28px;
-        line-height: 26px;
+        margin-top: 12px;
+        line-height: 36px;
         font-size: 14px;
     }
 }
@@ -83,15 +89,9 @@
         font-size: 16px;
     }
     .panel .panel-body{
-        padding-left: 28px;
-        line-height: 16px;
+        margin-top: 12px;
+        line-height: 32px;
         font-size: 14px;
-    }
-    #main .container .row{
-        height: 220px;
-    }
-    .show-img{
-        max-width: 220px;
     }
 }
 
@@ -101,14 +101,8 @@
         font-size: 14px;
     }
     .panel .panel-body{
-        padding-left: 0px;
-        line-height: 16px;
+        line-height: 26px;
         font-size: 12px;
-    }
-    #main .container .row{
-        height: 160px;
-    }
-    .show-img{
-        max-width: 160px;
+        margin-top: 0px;
     }
 }

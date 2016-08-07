@@ -2,6 +2,8 @@ Router = require('koa-router')
 wrapRoute = require('../../utils/wrapRoute')
 productsService = require('../../services/products/products')
 articlesService = require('../../services/articles/articles')
+messageService = require('../../services/leaveMessage/leave-message')
+questitionService = require('../../services/questionnaire/questionnaire')
 router = Router()
 
 router.get '/product', wrapRoute (ctx) ->
@@ -104,9 +106,65 @@ router.get '/soma_detail', wrapRoute (ctx) ->
                     soma: 'active'
 
 
+router.get '/survey', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        productsService.getClickCountProducts()
+        .then (clickProducts) ->
+            articlesService.getClickCountArticles()
+                .then (clickArticles) ->
+                    resolve
+                        template: 'home/survey'
+                        data:
+                            clickProducts: clickProducts
+                            clickArticles: clickArticles
+                            menu:
+                                survey: 'active'
+
+router.post '/survey', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        console.log ctx.request.body
+        questitionService.questionnaireCalculate(ctx.request.body)
+        .then (questition) ->
+            console.log questition
+            productsService.getClickCountProducts()
+            .then (clickProducts) ->
+                articlesService.getClickCountArticles()
+                    .then (clickArticles) ->
+                        resolve
+                            template: "home/survey_result_#{questition.page}"
+                            data:
+                                clickProducts: clickProducts
+                                clickArticles: clickArticles
+                                questition: questition
+                                menu:
+                                    survey: 'active'
+
+
 router.get '/about', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         resolve
             template: 'home/about'
+            data:
+
+                menu:
+                    about: 'active'
+
+router.get '/know', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        resolve
+            template: 'home/know'
+            data:
+
+                menu:
+                    about: 'active'
+
+router.post '/message', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        messageInfo = ctx.request.body
+        console.log messageInfo
+        messageService.addLeaveMessage(messageInfo)
+        .then () ->
+            resolve
+                data: true
 
 module.exports = router

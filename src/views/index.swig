@@ -85,7 +85,7 @@
           <div class="col-xs-6 col-sm-6 none">
             <div class="div_box">
               <figure class="effect-bubba">
-                <a href="article.html">
+                <a href="/home/article">
                   <img src="/images/index/index_10.png" />
                   <figcaption>
                     <h4>中医养生</h4>
@@ -97,7 +97,7 @@
           <div class="col-xs-6 col-sm-6 none">
             <div class="div_box">
               <figure class="effect-bubba">
-                <a href="article.html">
+                <a href="/home/article">
                   <img src="/images/index/index_09.png" />
                   <figcaption>
                     <h4>中医养生</h4>
@@ -113,7 +113,7 @@
         <div class="row">
           <div class="div_box">
             <figure class="effect-bubba">
-              <a href="survey.html">
+              <a href="/home/survey">
                 <img src="/images/index/index_02.png" />
                 <figcaption>
                   <h4>体质测试</h4>
@@ -138,7 +138,7 @@
           <div class="col-xs-6 col-sm-6 none">
             <div  class="div_box">
               <figure class="effect-bubba">
-                <a href="article.html">
+                <a href="/home/article">
                   <img src="/images/index/index_08.png" />
                   <figcaption>
                     <h4>中医养生</h4>
@@ -151,7 +151,7 @@
         <div class="row">
           <div class="div_box">
             <figure class="effect-bubba">
-              <a href="know.html">
+              <a href="/home/know">
                 <img src="/images/index/index_05.png" />
                 <figcaption>
                   <h4>辨清体质</h4>
@@ -178,7 +178,7 @@
         <div class="row">
           <div class="div_box">
             <figure class="effect-bubba">
-              <a href="soma.html">
+              <a href="/home/soma">
                 <img src="/images/index/index_04.png" />
                 <figcaption>
                   <h4>体质与健康</h4>
@@ -191,7 +191,7 @@
         <div class="row">
           <div class="div_box">
             <figure class="effect-bubba">
-              <a href="about.html">
+              <a href="/home/about">
                 <img src="/images/index/index_06.png" />
                 <figcaption>
                   <h4>关于我们</h4>

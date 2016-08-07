@@ -1,0 +1,182 @@
+.hidden{
+    display: none;
+}
+i{
+    margin-right: 8px;
+    color: limegreen;
+}
+.panel .panel-body{
+    line-height: 28px;
+}
+#sidebar #sideManu .subMenu ul li{
+    font-size: 12px;
+}
+.start-survey{
+    font-size: 18px;
+    color: rgb(122,176,54);
+    line-height: 46px;
+}
+.start-survey div{
+    font-size: 14px;
+    color: black;
+}
+.well h3{
+    font-size: 16px;
+    margin-top: -6px;
+    color: dimgrey;
+}
+.well .radio-survey div{
+    margin: 5px 12px 0px 0px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 8px;
+}
+.radio-inline{
+    border: 1px solid limegreen;
+    border-radius: 5px;
+    min-width: 80px;
+    height: 40px;
+    box-shadow: 1px 1px 1px #000;
+    -moz-box-shadow: 1px 1px 1px #000;
+    -webkit-box-shadow: 1px 1px 1px #000;
+}
+.btn-start-survey,.select-survey{
+    border: 1px solid limegreen;
+    background-color: limegreen;
+    color: white;
+    box-shadow: 1px 1px 2px #000;
+    -moz-box-shadow: 1px 1px 2px #000;
+    -webkit-box-shadow: 1px 1px 2px #000;
+}
+.btn-start-survey{
+    height: 40px;
+    font-weight: bolder;
+    font-size: 22px;
+}
+.survey-value {
+    border: none;
+    background-color: white;
+    padding:0px;
+}
+
+/*survey_detail*/
+.row-survey-result{
+    padding-right: 6px;
+    margin-left:0px;
+}
+.row-survey-result .well{
+    background:none;
+    border: none;
+    color: dimgrey;
+    line-height: 22px;
+    box-shadow: none;
+    padding:0px;
+    margin-bottom:0px;
+}
+.row-survey-result .well h1{
+    color: black;
+    margin-bottom: 20px;
+    line-height: 42px;
+    font-size: 24px;
+    border-bottom: 1px solid lightgrey;
+}
+.row-survey-result .well h2{
+    color: black;
+    margin-bottom: 20px;
+    line-height: 42px;
+    font-size: 20px;
+}
+.row-survey-result .well .soma{
+    font-size: 26px;
+    color: deeppink;
+    font-weight: bolder;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.row-survey-result .well .other-desc{
+    margin-top: 12px;
+    font-size: 18px;
+}
+.row-survey-result .well i{
+    margin-right: 16px;
+}
+.row-survey-result .well .glyphicon-tint{
+    color: limegreen;
+}
+.row-survey-result .well ul li{
+    line-height: 24px;
+}
+#VoteMain {
+    width: 100%;
+    height: 280px;
+    margin: 0 auto;
+    margin-top: 0px;
+    padding: 20px 20px 20px 20px;
+}
+.VoteItem {
+    height: 100%;
+    border: 1px solid #efefef;
+    float: left;
+    margin-left: 6px;
+}
+.VoteValue {
+    width: 50px;
+    height: 100px;
+    background-color: #f47920;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    border: 1px solid #fff;
+}
+.VoteItem:hover .VoteSpan {
+    display: block;
+}
+.VoteValue:hover {
+    -webkit-box-shadow: 0px 0px 5px #808080;
+    -moz-box-shadow: 0px 0px 5px #808080;
+    box-shadow: 0px 0px 5px #808080;
+}
+.VoteSpan {
+    width: 80px;
+    height: 30px;
+    background-color: #000;
+    float: left;
+    margin-top: -38px;
+    margin-left: -15px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    display: none;
+}
+.VoteImg {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 5px #ccc;
+    -moz-box-shadow: 0px 0px 5px #ccc;
+    box-shadow: 0px 0px 5px #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 0 auto;
+    margin-left: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.VoteImg:hover {
+    border-color: #4e72b8;
+    -webkit-box-shadow: 0px 0px 5px #444693;
+    -moz-box-shadow: 0px 0px 5px #444693;
+    box-shadow: 0px 0px 5px #444693;
+}
+.VoteText {
+    font: 12px "微软雅黑", Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    line-height: 10px;
+    margin-top: 5px;
+}

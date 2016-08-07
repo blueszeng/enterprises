@@ -5,15 +5,15 @@ $(document).ready(function(e) {
 var Vote={
     voteJson:[
         //不能超过120
-        {Name:"平和",Img:"images/survey/1.jpg",Value:120},
-        {Name:"气虚",Img:"images/survey/2.jpg",Value:120},
-        {Name:"阳虚",Img:"images/survey/3.jpg",Value:102},
-        {Name:"阴虚",Img:"images/survey/4.jpg",Value:113},
-        {Name:"气郁",Img:"images/survey/5.jpg",Value:98},
-        {Name:"痰湿",Img:"images/survey/6.jpg",Value:103},
-        {Name:"血瘀",Img:"images/survey/7.jpg",Value:96},
-        {Name:"湿热",Img:"images/survey/8.jpg",Value:58},
-        {Name:"特禀",Img:"images/survey/9.jpg",Value:110}
+        {Name:"平和",Img:"/images/survey/1.jpg",Value:result_value_1},
+        {Name:"气虚",Img:"/images/survey/2.jpg",Value:result_value_2},
+        {Name:"阳虚",Img:"/images/survey/3.jpg",Value:result_value_2},
+        {Name:"阴虚",Img:"/images/survey/4.jpg",Value:result_value_3},
+        {Name:"气郁",Img:"/images/survey/5.jpg",Value:result_value_4},
+        {Name:"痰湿",Img:"/images/survey/6.jpg",Value:result_value_5},
+        {Name:"血瘀",Img:"/images/survey/7.jpg",Value:result_value_6},
+        {Name:"湿热",Img:"/images/survey/8.jpg",Value:result_value_7},
+        {Name:"特禀",Img:"/images/survey/9.jpg",Value:result_value_8}
     ],
     Init:function(){
         for(var i=0;i<Vote.voteJson.length;i++){

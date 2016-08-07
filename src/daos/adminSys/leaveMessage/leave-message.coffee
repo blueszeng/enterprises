@@ -5,14 +5,16 @@ module.exports.insertLeaveMessage = (leavemsgInfo, connection = mysql) ->
         sql ="
         INSERT
             t_leave_message
-            (name, phone, address, emal, message, createTime)
+            (name, phone, address, emal, message, createTime, status)
         VALUES
-            (?,?)"
-        connection.query sql, [leavemsgInfo.name, leavemsgInfo.phone,
-            leavemsgInfo.address, leavemsgInfo.emal, leavemsgInfo.message, leavemsgInfo.createTime]
-        (err, ret) ->
-            reject　'添加添加留言异常' if err
-            resolve true
+            (?,?,?,?,?,now(),0)"
+        connection.query sql, [
+            leavemsgInfo.name, leavemsgInfo.phone,
+            leavemsgInfo.address, leavemsgInfo.emal,
+            leavemsgInfo.message, leavemsgInfo.createTime], (err, ret) ->
+                console.log err
+                reject　'添加添加留言异常' if err
+                resolve true
 
 module.exports.searchLeaveMessageBymatchDate = (matchDate, connection = mysql) ->
     new Promise (resolve, reject) ->
