@@ -10,7 +10,7 @@ module.exports.MYSQLURL = do () ->
         return "mysql://root@127.0.0.1/enterprises?debug=false&charset=utf8mb4&
           timezone=+0800&connectionLimit＝8&waitForConnections=true&queueLimit=0&acquireTimeout=30000"
     else
-        return "mysql://root@127.0.0.1/enterprises?debug=false&charset=utf8mb4&
+        return "mysql://root:123456@112.74.58.22/enterprises?debug=false&charset=utf8mb4&
           timezone=+0800&connectionLimit＝8&waitForConnections=true&queueLimit=0&acquireTimeout=30000"
  #加盐hash值
 module.exports.HASHKEY = 'knhu4%1O'

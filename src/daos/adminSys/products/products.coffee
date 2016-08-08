@@ -19,11 +19,12 @@ module.exports.updateProducts = (productsInfo, connection = mysql) ->
         UPDATE
             t_products
         SET
-          name = ?, linkImageUrl = ?, imageUrl = ?, productsTypeId = ?
+          name = ?, linkImageUrl = ?, imageUrl = ?, productsTypeId = ?, isRecommend =?
         WHERE
             id = ?"
-        connection.query sql, [productsInfo.name, productsInfo.url,
-         productsInfo.image, productsInfo.productsTypeId, productsInfo.id], (err, ret) ->
+        console.log sql, productsInfo
+        connection.query sql, [productsInfo.name, productsInfo.linkImageUrl,
+         productsInfo.imageUrl, productsInfo.productsTypeId, productsInfo.isRecommend, productsInfo.id], (err, ret) ->
              console.log err
              reject　'更新产品分类异常' if err
              resolve true

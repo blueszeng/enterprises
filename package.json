@@ -21,6 +21,7 @@
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.0.0",
     "koa-compress": "^2.0.0",
+    "koa-generic-session": "^1.11.3",
     "koa-handlebars": "^0.5.7",
     "koa-multer": "^1.0.0",
     "koa-router": "^7.0.1",
