@@ -28,7 +28,6 @@ module.exports.questionnaireCalculate = (questitionInfo) ->
         resultSureQuestition = []
         resultPreferQuestition = []
         resultLowQualityQuestition = []
-        console.log scoreQuestition
         for key, questition of scoreQuestition
             if key != 'flat'
                 if questition >= 40
@@ -42,13 +41,13 @@ module.exports.questionnaireCalculate = (questitionInfo) ->
             result.survey = sureyMap.flat.name
             result.page = sureyMap.flat.page
         else
-            console.log resultPreferQuestition
             resultPreferQuestition.sort (a, b) ->
-                return 1 if a.value > b.value
+                return 1 if a.value < b.value
+            console.log resultPreferQuestition
             survey = sureyMap[resultPreferQuestition.shift().name]
             result.survey = survey.name
             result.page = survey.page
-            result.prefer = ""
+            result.prefer = "偏向于"
             console.log result, resultSureQuestition, resultPreferQuestition, resultLowQualityQuestition
 
             for sureQuestition in resultSureQuestition
