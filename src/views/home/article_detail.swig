@@ -10,7 +10,7 @@
   <!-- Sidebar end=============================================== -->
   <article class="col-xs-12 col-sm-12 col-md-9">
       <div class="inside-bg">
-          <div class="position"><a class="p-home" title="首页" href="/"></a> <a href="/">首页 ></a> <a href="">养生必读</a></div>
+          <div class="position"><a class="p-home" title="首页" href="/"></a> <a href="/">首页 ></a> <a href="/home/article">养生必读 ></a>文章</div>
           <div class="new_content clearfix">
 
               <div class="new_article clearfix">

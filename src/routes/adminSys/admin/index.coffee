@@ -33,20 +33,36 @@ router.post '/login', wrapRoute (ctx) ->
                     template: '/admin/login'
                     data: err: err
 
+
+router.get '/user', wrapRoute (ctx) ->
+    new Promise (resolve, reject) ->
+        console.log 'sbbbbbbbbbbbbb'
+        resolve
+            template: '/admin/user'
+            data: {}
+
 router.post '/modifyPassword', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         schema = Joi.object().keys
-            userName: Joi.string().required().label('不合法的管理员帐号')
+            passwordConfirm: Joi.string().required().label('不合法的管理员密码')
             password: Joi.string().required().label('不合法的管理员密码')
         adminInfo = ctx.request.body
+        console.log adminInfo
         Joi.validate  adminInfo , schema, (err, value) ->
+            console.log err
             if err
                 return resolve
-                    template: 'admin/modifypwd'
+                    template: '/admin/user'
                     data: err: err.details[0].context.key
-            adimService.modifyAdminPassword adminInfo.userName, adminInfo.password
+            if adminInfo.passwordConfirm != adminInfo.password
+                return resolve
+                    template: '/admin/user'
+                    data: err: '两次输入密码不一致'
+            userName = 'admin'
+            adimService.modifyAdminPassword userName, adminInfo.password
             .then (ret) ->
-                adimService.getAdminAccount(adminInfo.userName)
+                console.log ret
+                adimService.getAdminAccount(userName)
                 .then (user) ->
                     ctx.session.user = user
                     resolve
