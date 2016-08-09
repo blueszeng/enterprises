@@ -61,12 +61,12 @@ router.post '/modifyPassword', wrapRoute (ctx) ->
             userName = 'admin'
             adimService.modifyAdminPassword userName, adminInfo.password
             .then (ret) ->
-                console.log ret
                 adimService.getAdminAccount(userName)
                 .then (user) ->
                     ctx.session.user = user
+                    console.log user
                     resolve
-                        url: 'admin/index'
+                        url: '/products/products'
                         redirect: true
             .catch (err) ->
                 resolve

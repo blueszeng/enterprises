@@ -15,8 +15,8 @@ module.exports.getAllLeaveMessage = (page = 1) ->
             count = ret[0]
             messages = ret[1]
             readStatus =
-              read: if ret[2][0] then ret[2][0].count else 0
-              unread: if ret[2][1] then ret[2][1].count else 0
+              unread: if ret[2][0] then ret[2][0].count else 0
+              read: if ret[2][1] then ret[2][1].count else 0
             messages.readStatus = readStatus
             messages.count = count
             messages.currPage = page

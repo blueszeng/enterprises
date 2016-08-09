@@ -69,7 +69,7 @@
   										<span class="name"><b>电话：</b>{{message.phone}}</span>
                       <span class="name"><b>地址：</b> {{message.address}}</span>
                       <span class="name"><b>邮箱：</b> {{message.emal}}</span>
-                      <span class="name"><b>留言时间：</b> {{message.createTime | date('F jS, Y')}}</span>
+                      <span class="name"><b>留言时间：</b> {{message.createTime  | date('Y-m-d H:i:s', -480, 'CCT')}}</span>
   									</div>
   									<div class="text">
   										<p>

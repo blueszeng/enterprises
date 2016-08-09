@@ -124,7 +124,7 @@
                         </td>
                         <td class="inbox-data-date hidden-xs">
                             <div>
-                              {{message.createTime | date('Y-m-d')}}
+                              {{message.createTime | date('Y-m-d H:i:s', -480, 'CCT')}}
                             </div>
                         </td>
                     </tr>

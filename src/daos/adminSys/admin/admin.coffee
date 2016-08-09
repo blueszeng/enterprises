@@ -22,8 +22,8 @@ module.exports.updateAdminPassword = (userName, password, connection = mysql) ->
             password = ?
         WHERE
             userName = ?"
-        connection.query sql, [password, userName]
-        (err, ret) ->
+        connection.query sql, [password, userName], (err, ret) ->
+            console.log err, ret
             return reject　'更新管理员帐号出错' if err
             return resolve true
 
