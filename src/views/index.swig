@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <title>Page title</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+   <title>湖南芒谷食品有限公司</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="description"
+          content="湖南芒谷食品有限公司,养生,中医养生,养生方法,养生产品,湖南芒谷食品有限公司,芒谷食品,芒谷,保养,食品,药膳,,药膳养生"/>
+    <meta name="keywords"
+          content="养生,中医养生,养生方法,养生产品,湖南芒谷食品有限公司,芒谷食品,芒谷,保养,食品,药膳,,药膳养生"/>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./tether/css/tether.css">
