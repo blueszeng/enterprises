@@ -7,6 +7,7 @@ module.exports.modifyAdminPassword = (userName, password) ->
     new Promise (resolve, reject) ->
         encode.encodePBKDF2(password, HASHKEY)
         .then (hash) ->
+            console.log hash
             adminDao.updateAdminPassword(userName, hash)
             .then (ret) ->
                 resolve(true)

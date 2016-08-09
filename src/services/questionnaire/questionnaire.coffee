@@ -14,6 +14,7 @@ sureyMap =
 module.exports.questionnaireCalculate = (questitionInfo) ->
     new Promise (resolve, reject) ->
         addQuestition = {}
+        console.log (questitionInfo)
         for key, questition of questitionInfo
             addQuestition[key] =
                 count: questition.length
@@ -21,7 +22,9 @@ module.exports.questionnaireCalculate = (questitionInfo) ->
                     return parseInt(pre) + parseInt(curr)
         scoreQuestition = {}
         for key, questition of addQuestition
+            console.log (questition.value - questition.count) , (questition.count * 4)
             scoreQuestition[key] = parseInt(((questition.value - questition.count) / (questition.count * 4)) * 100)
+
         resultSureQuestition = []
         resultPreferQuestition = []
         resultLowQualityQuestition = []

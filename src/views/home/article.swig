@@ -12,7 +12,7 @@
       </div>
       <div class="row row-panel">
           <div class="col-sm-12 catalog">
-              当前位置: 首页 > 养生必读
+              当前位置: <a href="/">首页 ></a>  养生必读
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
               {% for articleType in articleTypesListOne %}

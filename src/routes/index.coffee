@@ -26,4 +26,6 @@ router.get '/login', wrapRoute (ctx) ->
             url: '/adminSys/admin/login'
             redirect: true
 
+
+
 module.exports = router

@@ -103,6 +103,7 @@
               $('#emal').val('');
               $('#address').val('');
               $('#message').val('');
+              alert('添加留言成功')
             }
           });
       });

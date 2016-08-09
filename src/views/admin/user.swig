@@ -74,7 +74,7 @@
                             <!-- widget content -->
                             <div class="widget-body no-padding">
 
-                                <form id="smart-form-register" class="smart-form">
+                                <form id="smart-form-register" class="smart-form" method='post' action='/adminSys/admin/modifyPassword' >
                                     <header>
                                         更新密码
                                     </header>
