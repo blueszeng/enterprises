@@ -63,17 +63,21 @@
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
                 </ol>
                 <!-- 轮播（Carousel）项目 -->
                 <div class="carousel-inner">
                     <div class="item active">
-                      <img src="/images/index/index_01.png" alt="First slide">
+                      <img src="/images/index/index_01.png"  />
                     </div>
                     <div class="item">
-                      <img src="/images/index/index_01.png" alt="Second slide">
+                      <img src="/images/index/index_11.png" />
                     </div>
                     <div class="item">
-                      <img src="/images/index/index_01.png" alt="Third slide">
+                      <img src="/images/index/index_21.png"  />
+                    </div>
+                    <div class="item">
+                      <img src="/images/index/index_31.png"  />
                     </div>
                 </div>
                 <!-- 轮播（Carousel）导航
