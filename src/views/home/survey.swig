@@ -1605,8 +1605,17 @@
       //选中效果
       $('.radio-survey .radio-inline').click(function(){
           $(this).parents('.radio-survey').find('div').removeClass('select-survey');
-          $(this).addClass('select-survey');
+          $(this).addClass('select-survey');         
+          $(this).parents('.radio-survey').find('input').prop('checked',false);
           $(this).prev().click();
+          //下列自动展开
+          if(!$(this).parents('.panel').next().find('.panel-collapse').hasClass('in'))
+          {
+              $(this).parents('.panel').next().find('.panel-title').click();
+              var scroll_height = $(this).parents('.panel').height();
+              var t = $('body').scrollTop();
+              $('body').animate({'scrollTop':t+scroll_height},1000)
+          }
       })
       //是否保存
       $('.btn-start-survey').click(function(){
@@ -1616,15 +1625,6 @@
               $('.contact-tel').find('input').attr("required",true);
               $('.contact-tel').find('input').focus();
           }
-      })
-      $('.panel-group .radio-survey .radio-inline').click(function(){
-          if(!$(this).parents('.panel').next().find('.panel-collapse').hasClass('in'))
-          {
-              $(this).parents('.panel').next().find('.panel-title').click();
-              var scroll_height = $(this).parents('.panel').height();
-              var t = $('body').scrollTop();
-              $('body').animate({'scrollTop':t+scroll_height},1000)
-          }
-      })
+      })     
   </script>
 {% endblock %}

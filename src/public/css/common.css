@@ -18,6 +18,7 @@ a{color: black;cursor: pointer}
 a.fontnav {text-decoration:none; outline:none;}
 body{color:black;background-image: url("../images/bg.jpg");
     font-family:  "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    line-height:24px;
 }
 i{font-style:normal}
 p{padding:0px;margin:0px}
@@ -51,16 +52,39 @@ nav {
     color: beige;
     
 }
-.navbar{
-    min-height:42px;
+#navbar-height{
+    height:48px;  
+    overflow: hidden;  
 }
-nav ul li .active{
-
+#navbar-height ul li a{
+    height:48px;  
+    overflow: hidden;  
 }
 .container {
     max-width: 1000px;
 }
-
+.container .row .top-font-1,.container .row .top-font-2{
+    font-family:"STXingkai";
+    font-weight:bold;   
+    text-shadow: yellow 0 0 12px;   
+    font-size: 38px;
+    position:absolute;     
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;    
+}
+.container .row .top-font-1{
+    color:red;    
+    right: 288px;
+    top: 22px;
+            
+}
+.container .row .top-font-2{
+    color:blue;
+    right: 146px;
+    top: 76px;
+}
 
 /*底部 */
 .copy {
@@ -117,3 +141,7 @@ nav ul li .active{
     color: lightseagreen;
 }
 
+/* 共用产品侧边 */
+.thumbnail>a{display:block; text-align:center}
+.thumbnail h5,.thumbnail p{text-align:center;font-weight: bold}
+.thumbnail .caption h5 span{font-size:15px; color: lightcoral}

@@ -97,8 +97,6 @@
 
   <!-- Salvattore -->
   <script src="/js/salvattore.min.js"></script>
-  <!-- Main JS -->
-  <script src="/js/main.js"></script>
 {% endblock %}
 
 {% block scripts %}

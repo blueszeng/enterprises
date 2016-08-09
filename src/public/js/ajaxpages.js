@@ -11,8 +11,7 @@
             dataT: "json"//返回数据格式
 
         };
-        var option = $.extend(defaults, options);
-        console.log(option)
+        var option = $.extend(defaults, options);        
         this._url = option.url;
         this._nowP = option.nowP;
         this._maxP = option.maxP;

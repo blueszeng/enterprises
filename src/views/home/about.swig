@@ -45,11 +45,11 @@
           <div class="center-block col-md-6 ">
             <div class='contact-top'>
               <div class="point"> <img src="/images/taobao.png" /></div>
-              <h4>扫码有惊喜</h4>
+              <div class="point"> <h4>扫码有惊喜</h4></div>
               <div class="contact-ad">
-                  <p>地址 : 湖南省岳阳市君山区柳林洲镇挂口富民路1号<p>
+               <!--   <p>地址 : 湖南省岳阳市君山区柳林洲镇挂口富民路1号<p>
                   <p>电话 : 徐凯-18666220086<p>
-            <!--      <p>邮箱 : <a href="mailto:info@example.com">mail@example.com</a></p>   -->
+                  <p>邮箱 : <a href="mailto:info@example.com">mail@example.com</a></p>   -->
               </div>
               </div>
           </div>

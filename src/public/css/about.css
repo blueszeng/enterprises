@@ -55,8 +55,11 @@ p.para1{
 .more-address{
 	padding: 1em 0;
 }
+.point {
+	text-align:center;
+}
 .point img {
-	max-width: 160px;
+	max-width: 246px;
 }
 .location i {
 	color: #fff;

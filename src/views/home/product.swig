@@ -1,14 +1,13 @@
 {% extends 'leftProduct.swig' %}
 
 {% block importCss %}
-  <link rel="stylesheet" href="/bootstrap/css/product/bootstrap.min.css">
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/product.css">
 {% endblock %}
 
 {% block contentRight %}
-  <div id="mainBody">
-      <div class="container">
+  <div class="container">
+      <div >
           <div class="row">
               <!-- Sidebar ================================================== -->
               <div id="sidebar" class="col-sm-3 col-md-3">
@@ -90,7 +89,7 @@
       </div>
       <h4>产品 </h4>
       <div id = "descProducts"></div>
-      <div class="pagination pull-right">
+      <div class="pagination pull-right col-sm-12 col-md-12">
       </div>
   </div>
 </div>
