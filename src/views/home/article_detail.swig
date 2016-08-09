@@ -30,7 +30,7 @@
 {% endblock %}
 
 {% block importJs %}
-  <script src="/js/survey.js"></script>
+  
 {% endblock %}
 
 {% block scripts %}

@@ -13,8 +13,8 @@
 @media (max-width: 480px) {  }
 
 /* 通用 */
-a{color: black}
-*:hover,a:hover{ text-decoration:none}
+a{color: black;cursor: pointer}
+*:hover,a:hover,{ text-decoration:none;}
 a.fontnav {text-decoration:none; outline:none;}
 body{color:black;background-image: url("../images/bg.jpg");
     font-family:  "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
@@ -46,9 +46,13 @@ header img{
 }
 
 nav {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     color: beige;
+    
+}
+.navbar{
+    min-height:42px;
 }
 nav ul li .active{
 
@@ -87,7 +91,7 @@ nav ul li .active{
     border: none;
     margin-right: 0px;
     border-radius: 0px 0px 0px 0px;
-    line-height: 8px;
+    line-height: 8px; 
     font-weight: bold;
 }
 #sidebar #sideManu .subMenu ul{
@@ -103,3 +107,13 @@ nav ul li .active{
     padding-bottom: 10px;
     overflow: hidden;
 }
+/*分布当前样式*/
+.pagination ul li .current{ 
+    color: blue;
+    background-color: lightseagreen;
+    font-weight: bold;
+}
+#sidebar  li  #left-current{
+    color: lightseagreen;
+}
+

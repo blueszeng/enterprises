@@ -69,7 +69,7 @@
         },
         dataType: 'json'
       }).done(function(json) {
-      });
+      });    
   }
   </script>
 {% endblock %}

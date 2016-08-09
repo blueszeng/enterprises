@@ -42,19 +42,15 @@
       </div>
       <!--contact-->
       <div class="contact">
-          <div class="center-block col-md-6 contact-top">
-              <div class="point"> <i class="glyphicon glyphicon-map-marker"></i></div>
-              <h4>联系方式</h4>
+          <div class="center-block col-md-6 ">
+            <div class='contact-top'>
+              <div class="point"> <img src="/images/taobao.png" /></div>
+              <h4>扫码有惊喜</h4>
               <div class="contact-ad">
-                  <p>地址:**省**市**区**街道**号<p>
-                  <p>电话:18080880888<p>
-                  <p>邮箱 :<a href="mailto:info@example.com">mail@example.com</a></p>
-                  <ul class="f-icons">
-                      <li><a href="#" class="facebook"> </a></li>
-                      <li><a href="#" class="pin"> </a></li>
-                      <li><a href="#" class="twitter"> </a></li>
-                  </ul>
-
+                  <p>地址 : 湖南省岳阳市君山区柳林洲镇挂口富民路1号<p>
+                  <p>电话 : 徐凯-18666220086<p>
+            <!--      <p>邮箱 : <a href="mailto:info@example.com">mail@example.com</a></p>   -->
+              </div>
               </div>
           </div>
           <div class="col-md-6 about-map">
@@ -75,7 +71,7 @@
   <script>
       // 百度地图API功能
       var map = new BMap.Map("allmap");    // 创建Map实例
-      map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+      map.centerAndZoom(new BMap.Point(113.011172,29.44517), 11);  // 初始化地图,设置中心点坐标和地图级别
       map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
       map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
       map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放

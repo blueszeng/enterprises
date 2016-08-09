@@ -55,9 +55,8 @@ p.para1{
 .more-address{
 	padding: 1em 0;
 }
-.point i {
-	color: #788cb6;
-	font-size: 4em;
+.point img {
+	max-width: 160px;
 }
 .location i {
 	color: #fff;
@@ -107,7 +106,7 @@ ul.f-icons {
 	text-align: center;
 }
 .contact-top {
-	padding:48px 0 0 48px;
+	padding: 15px 15px 0 15px;
 }
 ul.f-icons li{
 	display:inline-block;

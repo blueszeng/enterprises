@@ -14,7 +14,7 @@
           <div class="row">
               <div>
                   <span id="logo" class="pull-left"> <img src="/images/logo.png"> </span>
-                  <span class="pull-right"> <img src="/images/font.png"> </span>
+          <!--        <span class="pull-right"> <img src="/images/font.png"> </span> -->
               </div>
           </div>
       </div>
@@ -39,20 +39,19 @@
  </div>
   <div class="copy">
       <p>
-          <a href="#">首页</a>
-          <a href="#">调理产品</a>
-          <a href="#">体质分类</a>
-          <a href="#">体质测试</a>
-          <a href="#">养生必读</a>
-          <a href="#">联系我们</a>
+          <a href="/">首页</a>
+          <a href="/home/product">调理产品</a>
+          <a href="/home/soma">体质分类</a>
+          <a href="/home/survey#">体质测试</a>
+          <a href="/home/article">养生必读</a>
+          <a href="/home/about">联系我们</a>
       </p>
-      <p>Copyright &copy; 2015.Company name All rights reserved.More Templates  -
-          Collect from </p>
+      <p>中医养生 湖南芒谷食品有限公司</p>
   </div>
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="/bootstrap/js/bootstrap.js"></script>
   {% block importJs %}{% endblock %}
   {% block scripts %}{% endblock %}
-  {% block leftProductScripts %}{% endblock %}
+  {% block leftProductScripts %}{% endblock %}  
 </body>
 </html>

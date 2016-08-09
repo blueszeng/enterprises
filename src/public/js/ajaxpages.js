@@ -89,8 +89,8 @@
         for (var i = 1; i <= disc && i <= _this._maxP; i++) {
             if (_this._nowP == i)
                 selcss = " class='" + _this._currClass + "' ";
-            str += "<li><a href='javascript:void(0)' " + selcss + " onclick='js_Page(" + i + ")' > " + i + " </a></li>";
-            selcss = "";
+            str += "<li><a href='javascript:void(0)' " + selcss + " onclick='js_Page(" + i + ")' > " + i + " </a></li>"; 
+            selcss = "";           
         }
         var hafem = parseInt(dism / 2);   //前后各显示一半  当前页在中
         var sStart = _this._nowP - hafem;   //页数过多第二次显示的开始 一定要显示当面前码
@@ -121,7 +121,7 @@
         return str;
     }
 
-    window.js_Page = function (page, option) {
+    window.js_Page = function (page, option,curr) {    
         if (!!js_Page.s_P) {//说明对象存在已经初始化
             if (!isNaN(page) || page == "prev" || page == "next") {
                 if (page == js_Page.s_P._nowP)
@@ -129,13 +129,12 @@
                 if (js_Page.s_P.actionPage(page)) {
                     //js_Page.s_P._dataCur 保存数据库传加的数据
                     var data = js_Page.s_P._dataCur;
-
                 }
+                $('.pagination').html(js_Page.s_P.showPage());
             }
         } else
-            js_Page.s_P = new Page(option);
+            js_Page.s_P = new Page(option);      
     }
-
 
 ////每个页面中
 //new js_Page(1,{url:请求URL地址,maxP:总页数});

@@ -205,9 +205,9 @@
     </div>
   </div>
   <div class="copy" style="border-top: none">
-    <p>Copyright©2011-2016 养生健康官网 咸阳玖和健康产品有限公司 版权所有
+    <p>中医养生 湖南芒谷食品有限公司
     </p>
-    <p>网站备案/许可证号:陕ICP备88888888号-6 </p>
+   <!-- <p>网站备案/许可证号:</p> -->
   </div>
   <script>
     $('#myCarousel').hammer().on('swipeleft', function(){

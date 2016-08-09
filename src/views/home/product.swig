@@ -18,7 +18,7 @@
                           <li class="subMenu open"><a data-id={{productsType.parentProductType.id}} onclick="addProducts(this)"> {{productsType.parentProductType.name}} [{{productsType.parentProductType.count}}]</a>
                               <ul>
                                   {% for child in productsType.childProductType %}
-                                    <li><a data-id={{child.id}} onclick="addProducts(this)" class="active">{{child.name}} ({{child.count}})
+                                    <li><a  data-id={{child.id}} onclick="addProducts(this)" class="active">{{child.name}} ({{child.count}})
                                     </a></li>
                                   {% endfor %}
                               </ul>
@@ -58,7 +58,7 @@
                                           <div class="thumbnail">
                                               <a onclick = "clickProductsAddCount(this)" data-id ="{{product.id}}" href="{{product.linkImageUrl}}"><img src="{{product.imageUrl}}" alt=""></a>
                                               <div class="caption">
-                                                  <h5>{{product.name}} ￥{{product.price}}</h5>
+                                                  <h5>{{product.name}} <span>￥{{product.price}}</span></h5>
                                               </div>
                                           </div>
                                       </li>
@@ -73,7 +73,7 @@
                                       <div class="thumbnail">
                                           <a  onclick = "clickProductsAddCount(this)" data-id ="{{product.id}}" href="{{product.linkImageUrl}}"><img src="{{product.imageUrl}}" alt=""></a>
                                           <div class="caption">
-                                              <h5>{{product.name}} ￥{{product.price}}</h5>
+                                              <h5>{{product.name}} <span>￥{{product.price}}</span></h5>
                                           </div>
                                       </div>
                                   </li>
@@ -102,6 +102,13 @@
   <script src="/js/plugin/artTemplate-master/dist/template-native.js"></script>
   <script src="/js/product.js"></script>
   <script src="/js/ajaxpages.js"></script>
+  <script>
+    //
+    $('#sidebar  li a').click(function(){
+        $('#sidebar  li a').attr('id','');
+        $(this).attr('id','left-current');
+    });
+  </script>
 {% endblock %}
 
 {% block scripts %}
@@ -112,7 +119,7 @@
          <div class="thumbnail">
              <a  onclick = "clickProductsAddCount(this)" data-id ="<!--[=products[i].id]-->" href="<!--[=products[i].linkImageUrl]-->"><img src="<!--[=products[i].imageUrl]-->" alt=""/></a>
              <div class="caption">
-                 <h5><!--[=products[i].name]--> ￥<!--[=products[i].price]--> </h5>
+                 <h5><!--[=products[i].name]--> <span>￥<!--[=products[i].price]--></span> </h5>
              </div>
          </div>
      </li>
