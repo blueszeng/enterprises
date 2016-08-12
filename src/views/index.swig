@@ -43,14 +43,14 @@
   <body>
   <div class="container">
     <div class="row" >
-        <div class="col-md-4 hidden-xs hidden-sm">
+        <div class="col-md-3 hidden-xs hidden-sm">
         </div>
-        <div class="col-md-4 col-xs-12 col-sm-12">
+        <div class="col-md-6 col-xs-12 col-sm-12">
           <div class="div_box">
-            <img class="center-block" src="/images/index/logo.gif" />
+            <img class="center-block" src="/images/logo.png" />
           </div>
         </div>
-        <div class="col-md-4 hidden-xs hidden-sm">
+        <div class="col-md-3 hidden-xs hidden-sm">
         </div>
     </div>
     <div class="row" >
@@ -213,7 +213,7 @@
     </div>
   </div>
   <div class="copy" style="border-top: none">
-    <p>中医养生 湖南芒谷食品有限公司
+    <p>湖南芒谷食品有限公司版权所有
     </p>
    <!-- <p>网站备案/许可证号:</p> -->
   </div>
