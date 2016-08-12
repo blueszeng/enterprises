@@ -1,15 +1,16 @@
 mysql = require('../../../stores/mysql')
 
 module.exports.insertProducts = (productsInfo, connection = mysql) ->
+    console.log productsInfo
     new Promise (resolve, reject) ->
         sql ="
         INSERT
             t_products
-            (name, linkImageUrl, imageUrl, productsTypeId)
+            (name, linkImageUrl, imageUrl, productsTypeId, price)
         VALUES
-            (?,?,?,?)"
+            (?,?,?,?,?)"
         connection.query sql, [productsInfo.name, productsInfo.linkImageUrl,
-         productsInfo.imageUrl, productsInfo.productsTypeId], (err, ret) ->
+         productsInfo.imageUrl, productsInfo.productsTypeId,productsInfo.price], (err, ret) ->
              reject　'添加产品异常' if err
              resolve true
 
@@ -19,12 +20,12 @@ module.exports.updateProducts = (productsInfo, connection = mysql) ->
         UPDATE
             t_products
         SET
-          name = ?, linkImageUrl = ?, imageUrl = ?, productsTypeId = ?, isRecommend =?
+          name = ?, linkImageUrl = ?, imageUrl = ?, productsTypeId = ?, isRecommend =?, price =?
         WHERE
             id = ?"
         console.log sql, productsInfo
         connection.query sql, [productsInfo.name, productsInfo.linkImageUrl,
-         productsInfo.imageUrl, productsInfo.productsTypeId, productsInfo.isRecommend, productsInfo.id], (err, ret) ->
+         productsInfo.imageUrl, productsInfo.productsTypeId, productsInfo.isRecommend, productsInfo.price, productsInfo.id], (err, ret) ->
              console.log err
              reject　'更新产品分类异常' if err
              resolve true

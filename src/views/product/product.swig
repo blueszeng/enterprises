@@ -112,6 +112,7 @@
                                         <tr>
                                             <th>产品ID</th>
                                             <th>产品名称</th>
+                                            <th>产品价格</th>
                                             <th>产品点击URL</th>
                                             <th>产品图片URL</th>
                                             <th>是否推荐</th>
@@ -123,6 +124,7 @@
                                         <tr>
                                             <td>{{product.id}}</td>
                                             <td>{{product.name}}</td>
+                                            <td>{{product.price}}</td>
                                             <td>{{product.linkImageUrl}}</td>
                                             <td>{{product.imageUrl}}</td>
                                             <td>{{product.isRecommend}}</td>

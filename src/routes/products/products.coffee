@@ -18,7 +18,7 @@ router.get '/add', wrapRoute (ctx) ->
 router.post '/add', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         productsInfo = ctx.request.body
-        console.log(productsInfo)
+        console.log('ggggg', productsInfo)
         productsService.addProducts(productsInfo)
         .then () ->
             resolve

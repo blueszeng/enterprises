@@ -95,7 +95,13 @@
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">产品名称</label>
                                             <div class="col-md-5">
-                                                <input class="form-control" placeholder="类型名称" name ="name" type="text">
+                                                <input class="form-control" placeholder="产品名称" name ="name" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">产品价格</label>
+                                            <div class="col-md-5">
+                                                <input class="form-control" placeholder="产品价格" name ="price" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group">
