@@ -22,7 +22,7 @@
               <div>
                   <h2>阴虚质的你是...</h2>
                   <div class="col-sm-6 col-xs-6"><img src="/images/survey/4-1.jpg"></div>
-                  <div class="col-sm-6 col-xs-6"><img src="/images/survey/4-3.jpg"></div>
+                  <div class="col-sm-6 col-xs-6"><img src="/images/survey/4-2.jpg"></div>
               </div>
           </div>
       </div>

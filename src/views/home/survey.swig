@@ -9,7 +9,7 @@
   </div>
   <!-- Sidebar end=============================================== -->
   <form action="/home/survey" method='post'>
-      <div class="col-xs-12 col-sm-12 col-md-9">
+      <div class="col-xs-12 col-sm-12 col-md-9 survey-start-desc">
           <div class="panel-group" id="accordion">
               <div class="panel panel-default">
                  <!--  <div class="panel-heading">
@@ -31,10 +31,37 @@
               </div>
           </div>
           <h1 class="start-survey">根据中医药学会《中医体质分类与判定》，测试您的体质
-              <div class="">请根据最近三个月的体验和感觉回答以下问题。孕妇不建议使用本测试；</div>
+              <div class="">请根据最近三个月的体验和感觉回答以下问题。孕妇不建议使用本测试；请在测试前进行下面的选择：</div>
           </h1>
+          <div class="start-survey">
+                <div class="well"><h3>请选择测试人的性别</h3>
+                    <div class="radio-survey">
+                        <input name="sex" value="male" type="radio" checked="checked" class="hidden"><div class="radio-inline select-survey">男性</div>
+                        <input name="sex" value="female" type="radio" class="hidden"><div class="radio-inline">女性</div>
+                    </div>
+                </div>
+    <!--            <div class="well"><h3>请选择测试人的年龄</h3>
+                    <div class="radio-survey">
+                        <input value="a" type="radio" checked="checked" class="hidden"><div class="radio-inline select-survey">20-30岁</div>
+                        <input value="b" type="radio" class="hidden"><div class="radio-inline">31-40岁</div>
+                        <input value="b" type="radio" class="hidden"><div class="radio-inline">41-50岁</div>
+                        <input value="b" type="radio" class="hidden"><div class="radio-inline">51-60岁</div>
+                        <input value="b" type="radio" class="hidden"><div class="radio-inline">61岁及以上</div>
+                    </div>
+                </div>
+                <div class="well"><h3>是否保存本次测试</h3>
+                    <div class="radio-survey">
+                        <input value="a" checked="checked" type="radio" class="hidden"><div onclick="$('.contact-tel').show()" class="radio-inline select-survey">保存</div>
+                        <input value="b" type="radio" class="hidden"><div onclick="$('.contact-tel').hide()" class="radio-inline">取消</div>
+                        <div class="contact-tel pull-right"> 联系电话：<input type="tel"></div>
+                    </div>
+                </div>  -->
+                <div>
+                    <button type="button" class="btn-start-survey pull-right btn btn-success">开始测试</button>
+                </div>
+          </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-9">
+      <div class="col-xs-12 col-sm-12 col-md-9 hidden survey-ques-desc">
           <div class="panel-group">
               <!-- 平和型 */ -->
               <div class="panel panel-default">
@@ -73,11 +100,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div lable="same-surey-value-1" class="same-surey radio-inline select-survey">没有</div>
+                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div lable="same-surey-value-2" class="same-surey radio-inline">很少</div>
+                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div lable="same-surey-value-3" class="same-surey radio-inline">有时</div>
+                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div lable="same-surey-value-4" class="same-surey radio-inline">常常</div>
+                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div lable="same-surey-value-5" class="same-surey radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -142,11 +169,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div lable="same-surey-value-6" class="same-surey radio-inline select-survey">没有</div>
+                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div lable="same-surey-value-7" class="same-surey radio-inline">很少</div>
+                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div lable="same-surey-value-8" class="same-surey radio-inline">有时</div>
+                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div lable="same-surey-value-9" class="same-surey radio-inline">常常</div>
+                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div lable="same-surey-value-10" class="same-surey radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -222,7 +249,7 @@
                   </div>
               </div>
               <!-- 气虚型 */ -->
-              <div class="panel panel-default">
+              <div class="panel panel-default hidden">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse9">
@@ -235,11 +262,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="deficiency[]" value="1" type="checkbox" checked="checked" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="deficiency[]" value="1" type="checkbox" checked="checked" class="hidden"><div class="same-surey-value-1 radio-inline select-survey">没有</div>
+                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-2 radio-inline">很少</div>
+                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="same-surey-value-3 radio-inline">有时</div>
+                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="same-surey-value-4 radio-inline">常常</div>
+                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="same-surey-value-5 radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -327,11 +354,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div lable="same-surey-value-11" class="same-surey radio-inline select-survey">没有</div>
+                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div lable="same-surey-value-12" class="same-surey radio-inline">很少</div>
+                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div lable="same-surey-value-13" class="same-surey radio-inline">有时</div>
+                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div lable="same-surey-value-14" class="same-surey radio-inline">常常</div>
+                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div lable="same-surey-value-15" class="same-surey radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -476,7 +503,7 @@
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <div class="panel panel-default hidden">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse20">
@@ -489,17 +516,17 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="Yang[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="Yang[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="Yang[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="Yang[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="Yang[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="same-surey-value-6 radio-inline select-survey">没有</div>
+                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-7 radio-inline">很少</div>
+                                  <input name="Yang[]" value="3" type="checkbox" class="hidden"><div class="same-surey-value-8 radio-inline">有时</div>
+                                  <input name="Yang[]" value="4" type="checkbox" class="hidden"><div class="same-surey-value-9 radio-inline">常常</div>
+                                  <input name="Yang[]" value="5" type="checkbox" class="hidden"><div class="same-surey-value-10 radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <div class="panel panel-default hidden">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse21">
@@ -512,11 +539,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="Yang[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="Yang[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="Yang[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="Yang[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="Yang[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="same-surey-value-11 radio-inline select-survey">没有</div>
+                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-121 radio-inline">很少</div>
+                                  <input name="Yang[]" value="3" type="checkbox" class="hidden"><div class="same-surey-value-13 radio-inline">有时</div>
+                                  <input name="Yang[]" value="4" type="checkbox" class="hidden"><div class="same-surey-value-14 radio-inline">常常</div>
+                                  <input name="Yang[]" value="5" type="checkbox" class="hidden"><div class="same-surey-value-15 radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -1054,7 +1081,8 @@
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <!-- （限女性答复） -->
+              <div class="panel panel-default survey-female">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse45">
@@ -1077,12 +1105,13 @@
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <!-- （限男性答复） -->
+              <div class="panel panel-default survey-male">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse46">
                           <a href="#">
-                              您的阴囊部位湿润吗？（限男性答复）
+                              您的阴囊部位湿润吗？
                           </a>
                       </h4>
                   </div>
@@ -1587,10 +1616,11 @@
                   </div>
               </div>
           </div>
+           <div>
+                <button type="submit" class="btn-result-survey pull-right btn btn-success">查看结果</button>
+            </div>
       </div>
-      <div>
-          <button type="submit" class="btn-start-survey pull-right btn btn-success">查看结果</button>
-      </div>
+     
   </form>
   </div>
 </div>
@@ -1602,29 +1632,54 @@
 {% block scripts %}
   <script>
       $('.select-survey').click();
+      //测试前的姓别选项
+      $('.start-survey .radio-inline').click(function(){
+          $(this).parents('.start-survey').find('div').removeClass('select-survey');
+          $(this).addClass('select-survey');
+          $(this).prev().click();  
+      })
       //选中效果
       $('.radio-survey .radio-inline').click(function(){
           $(this).parents('.radio-survey').find('div').removeClass('select-survey');
           $(this).addClass('select-survey');         
           $(this).parents('.radio-survey').find('input').prop('checked',false);
           $(this).prev().click();
+          var next = $(this).parents('.panel').next();          
+          while(next.hasClass('hidden'))
+                next = next.next();           
           //下列自动展开
-          if(!$(this).parents('.panel').next().find('.panel-collapse').hasClass('in'))
-          {
-              $(this).parents('.panel').next().find('.panel-title').click();
+          if(!next.find('.panel-collapse').hasClass('in')&&!$(this).parents('.panel').hasClass('hidden'))
+          {         
+              next.find('.panel-title').click();
               var scroll_height = $(this).parents('.panel').height();
               var t = $('body').scrollTop();
               $('body').animate({'scrollTop':t+scroll_height},1000)
           }
       })
-      //是否保存
+      //      开始测试
       $('.btn-start-survey').click(function(){
-          if($('.contact-tel').is(":hidden")){
-              $('.contact-tel').find('input').attr("required",false);
-          }else{
-              $('.contact-tel').find('input').attr("required",true);
-              $('.contact-tel').find('input').focus();
-          }
-      })     
+            var sex = $('input[name="sex"]:checked').val();
+            if(sex == 'female'){
+                $('.survey-male').addClass('hidden');
+                $('.survey-female').removeClass('hidden');
+            }
+            else{
+                $('.survey-female').addClass('hidden');
+                 $('.survey-male').removeClass('hidden');
+            }
+            $(this).parents('.survey-start-desc').html('');
+            $('.survey-ques-desc').removeClass('hidden');
+      }) 
+      $('.btn-result-survey').click(function(){
+            $(this).addClass('disabled');
+      })
+
+       //相同问题只选一次   
+     $('.same-surey').click(function(){
+            var lable = $(this).attr('lable');       
+            $('.'+lable).each(function(){
+                $(this).click();
+            });
+      })
   </script>
 {% endblock %}
