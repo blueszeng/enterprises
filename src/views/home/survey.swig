@@ -123,11 +123,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="flat[]" value="5" checked="checked" type="checkbox" class="hidden"><div lable="same-survey-value-16" class="same-surey radio-inline select-survey">没有</div>
+                                  <input name="flat[]" value="4" type="checkbox" class="hidden"><div lable="same-survey-value-17" class="same-surey radio-inline">很少</div>
+                                  <input name="flat[]" value="3" type="checkbox" class="hidden"><div lable="same-survey-value-18" class="same-surey radio-inline">有时</div>
+                                  <input name="flat[]" value="2" type="checkbox" class="hidden"><div lable="same-survey-value-19" class="same-surey radio-inline">常常</div>
+                                  <input name="flat[]" value="1" type="checkbox" class="hidden"><div lable="same-survey-value-20" class="same-surey radio-inline">总是</div>
                               </div>
                           </div>
                       </div>
@@ -387,7 +387,7 @@
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <div class="panel panel-default hidden">
                   <div class="panel-heading">
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse15">
@@ -400,11 +400,11 @@
                       <div class="panel-body">
                           <div class="well survey-value">
                               <div class="radio-survey">
-                                  <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                  <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="same-survey-value-16 radio-inline select-survey">没有</div>
+                                  <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="same-survey-value-17 radio-inline">很少</div>
+                                  <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="same-survey-value-18 radio-inline">有时</div>
+                                  <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="same-survey-value-19 radio-inline">常常</div>
+                                  <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="same-survey-value-20 radio-inline">总是</div>
                               </div>
                           </div>
                       </div>

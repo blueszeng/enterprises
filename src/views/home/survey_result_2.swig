@@ -14,7 +14,7 @@
               <h1>测试结果</h1>
               <span>你的体质是</span>
               <div class="soma">气虚质</div>
-              <div>倾向气虚质、阳虚质、阴虚质、痰湿质、气郁质、特禀质。
+              <div>{{questition.prefer}}
               <div class="other-desc"><i class="glyphicon glyphicon-info-sign"></i>兼有各倾向体质说明</div>
               <div id="Demo" style="text-align:center;">
                   <div id="VoteMain"> </div>
