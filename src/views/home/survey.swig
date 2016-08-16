@@ -415,7 +415,7 @@
                           <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                               href="#collapse16">
                               <a href="#">
-                                  您活动量就容易出虚汗吗？
+                                  您活动量稍大就容易出虚汗吗？
                               </a>
                           </h4>
                       </div>
@@ -423,11 +423,11 @@
                           <div class="panel-body">
                               <div class="well survey-value">
                                   <div class="radio-survey">
-                                      <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                      <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                      <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                      <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                      <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                      <input name="deficiency[]" value="1" checked="checked" type="checkbox" class="hidden"><div lable="same-surey-value-21" class="same-surey radio-inline select-survey">没有</div>
+                                      <input name="deficiency[]" value="2" type="checkbox" class="hidden"><div lable="same-surey-value-22" class="same-surey radio-inline">很少</div>
+                                      <input name="deficiency[]" value="3" type="checkbox" class="hidden"><div lable="same-surey-value-23" class="same-surey radio-inline">有时</div>
+                                      <input name="deficiency[]" value="4" type="checkbox" class="hidden"><div lable="same-surey-value-24" class="same-surey radio-inline">常常</div>
+                                      <input name="deficiency[]" value="5" type="checkbox" class="hidden"><div lable="same-surey-value-25" class="same-surey radio-inline">总是</div>
                                   </div>
                               </div>
                           </div>
@@ -540,7 +540,7 @@
                           <div class="well survey-value">
                               <div class="radio-survey">
                                   <input name="Yang[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="same-surey-value-11 radio-inline select-survey">没有</div>
-                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-121 radio-inline">很少</div>
+                                  <input name="Yang[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-12 radio-inline">很少</div>
                                   <input name="Yang[]" value="3" type="checkbox" class="hidden"><div class="same-surey-value-13 radio-inline">有时</div>
                                   <input name="Yang[]" value="4" type="checkbox" class="hidden"><div class="same-surey-value-14 radio-inline">常常</div>
                                   <input name="Yang[]" value="5" type="checkbox" class="hidden"><div class="same-surey-value-15 radio-inline">总是</div>
@@ -757,7 +757,7 @@
                       </div>
                   </div>
               </div>
-              <div class="panel panel-default">
+              <div class="panel panel-default hidden">
                       <div class="panel-heading">
                           <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                               href="#collapse31">
@@ -770,11 +770,11 @@
                           <div class="panel-body">
                               <div class="well survey-value">
                                   <div class="radio-survey">
-                                      <input name="Yin[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="radio-inline select-survey">没有</div>
-                                      <input name="Yin[]" value="2" type="checkbox" class="hidden"><div class="radio-inline">很少</div>
-                                      <input name="Yin[]" value="3" type="checkbox" class="hidden"><div class="radio-inline">有时</div>
-                                      <input name="Yin[]" value="4" type="checkbox" class="hidden"><div class="radio-inline">常常</div>
-                                      <input name="Yin[]" value="5" type="checkbox" class="hidden"><div class="radio-inline">总是</div>
+                                      <input name="Yin[]" value="1" checked="checked" type="checkbox" class="hidden"><div class="same-surey-value-21 radio-inline select-survey">没有</div>
+                                      <input name="Yin[]" value="2" type="checkbox" class="hidden"><div class="same-surey-value-22 radio-inline">很少</div>
+                                      <input name="Yin[]" value="3" type="checkbox" class="hidden"><div class="same-surey-value-23 radio-inline">有时</div>
+                                      <input name="Yin[]" value="4" type="checkbox" class="hidden"><div class="same-surey-value-24 radio-inline">常常</div>
+                                      <input name="Yin[]" value="5" type="checkbox" class="hidden"><div class="same-surey-value-25 radio-inline">总是</div>
                                   </div>
                               </div>
                           </div>
@@ -1087,7 +1087,7 @@
                       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion"
                           href="#collapse45">
                           <a href="#">
-                              您带下色黄（白带颜色发黄）吗？（限女性答复）
+                              您带下色黄（白带颜色发黄）吗？
                           </a>
                       </h4>
                   </div>
