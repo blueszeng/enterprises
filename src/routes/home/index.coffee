@@ -123,13 +123,22 @@ router.get '/survey', wrapRoute (ctx) ->
 router.post '/survey', wrapRoute (ctx) ->
     new Promise (resolve, reject) ->
         console.log ctx.request.body
-        questitionService.questionnaireCalculate(ctx.request.body)
-        .then (questition) ->
-            console.log questition
-            productsService.getClickCountProducts()
-            .then (clickProducts) ->
-                articlesService.getClickCountArticles()
-                    .then (clickArticles) ->
+        productsService.getClickCountProducts()
+        .then (clickProducts) ->
+            articlesService.getClickCountArticles()
+                .then (clickArticles) ->
+                    if Object.keys(ctx.request.body).length < 0
+                        console.log('dsfsfs')
+                        resolve
+                            template: 'home/survey'
+                            data:
+                                clickProducts: clickProducts
+                                clickArticles: clickArticles
+                                menu:
+                                    survey: 'active'
+                    questitionService.questionnaireCalculate(ctx.request.body)
+                    .then (questition) ->
+                        console.log questition
                         resolve
                             template: "home/survey_result_#{questition.page}"
                             data:
