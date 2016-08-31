@@ -1,4 +1,4 @@
-module.exports.PORT = PORT = process.env.PORT || 3005
+module.exports.PORT = PORT = process.env.PORT || 8080
 module.exports.DEVELOPMENT = DEVELOPMENT = process.env.NODE_ENV != 'production'
 module.exports.TEST = TEST = process.env.NODE_ENV == 'testing'
 
