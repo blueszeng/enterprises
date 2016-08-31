@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-   <title>湖南芒谷食品有限公司</title>
+   <title>芒谷食品</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="description"
           content="湖南芒谷食品有限公司,养生,中医养生,养生方法,养生产品,湖南芒谷食品有限公司,芒谷食品,芒谷,保养,食品,药膳,,药膳养生"/>
@@ -215,7 +215,7 @@
   <div class="copy" style="border-top: none">
     <p>湖南芒谷食品有限公司版权所有
     </p>
-   <!-- <p>网站备案/许可证号:</p> -->
+    <p>网站备案/许可证号:湘ICP备16013891号-1</p>
   </div>
   <script>
     $('#myCarousel').hammer().on('swipeleft', function(){
